@@ -1,9 +1,8 @@
 # Arbeitspakete
 1 Projektmanagement (Start: 02.05.2023, Dauer: 10 Personenstunden)  
 1.1. Projektplanung (Start: 02.05.2023, Dauer: 4 Personenstunden)  
-1.2. Zeit- und Ressourcenmanagement (Start: 08.05.2023, Dauer: 4 Personenstunden)  
-1.3. Risikomanagement (Start: 09.05.2023, Dauer: 1 Personenstunde)  
-1.4. Kommunikationsmanagement (Start: 09.05.2023, Dauer: 1 Personenstunde)  
+1.2. Zeit- und Ressourcenmanagement (Start: 08.05.2023, Dauer: 5 Personenstunden)  
+1.3. Risikomanagement (Start: 09.05.2023, Dauer: 1 Personenstunde)    
 
 2 Anforderungsanalyse (Start: 11.05.2023, Dauer: 5 Personenstunden)
 
