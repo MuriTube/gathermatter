@@ -31,4 +31,6 @@
 4 Testen (Start: 12.06.2023, Dauer: 10 Personenstunden)  
 4.1. Funktionsprüfung (Start: 12.06.2023, Dauer: 5 Personenstunden)  
 4.2. Usability-Tests (Start: 12.06.2023, Dauer: 3 Personenstunden)  
-4.3. Sicherheitsprüfung (Start: 15.06.2023, Dauer: 2 Personenstunden)  
+4.3. Sicherheitsprüfung (Start: 15.06.2023, Dauer: 3 Personenstunden)  
+
+5 Präsentationsvorbereitung
