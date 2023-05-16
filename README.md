@@ -15,6 +15,8 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 11.05.2023|1.3|9:25 - 10:25| 1h | LBS | Risikomanagement Analyse | - | -
 11.05.2023|2.1|10:25 - 12:50| 1h 40m | LBS | Recherche Wireframes/Mockups  | - | -
 12.05.2023| - | 10:30 - 11:00 | 30m | LBS | Anbindung Webspace FTP Server + Funktionstest | - | -
+15.05.2023|2.1| 10:00 - 12:20 | 2h 20m | LBS | Erstellen von Wireframes und Mockups | - | -
+16.06.2023|2.2| 07:30 - 10:00 | 2h 30m | LBS | Festlegung des UI Design | - | -
 
 ## Murilo:
 
