@@ -1,8 +1,7 @@
 # Projekttagebuch
 ## GatherMatter
-## Emirhan Bekmez
-### Murilo Bauer
 ---
+
 ## Emirhan:
 
 Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen  
@@ -27,3 +26,26 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 09.05.2023|1.1|07:30 - 10:00| 2h 15m | LBS | PSP Umsetzung | - | Diverses aus Eduvidual
 10.05.2023|1.1|12:20 - 13:20| 1h | LBS | Projekthandbuch | - | -
 11.05.2023|1.3|9:25 - 10:25 | 1h | LBS | Risikomanagement Analyse | - | -
+
+  
+  
+### Vorläufige Datenbankstruktur
+
+
+![DeDotenbonkStruktua](http://lbs.muri.io:3000/4aAPC_Projekte/Gruppe1/raw/branch/main/Planung/db_diag.png)
+
+Enum User\_Rolle\_enum {  
+Veranstalter  
+Teilnehmer  
+Admin  
+}  
+  
+Enum Zahlung\_Zahlungsstatus\_enum {  
+Nicht bezahlt  
+Bezahlt  
+}  
+  
+Enum Zahlung\_Zahlungsart\_enum {  
+Crypto  
+PayPal  
+}  
