@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style=" box-shadow: 0 4.5px 2px -2px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <img src="./src\assets\logo-black.png" alt="logo" width="60px" height="60px">
@@ -28,8 +28,8 @@
                 <button class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;" type="submit">Search</button>
             </form> 
             <div class="d-flex">
-            <button type="button" class="btn btn-sm btn-primary" style="margin-right: 5px;" >Register</button>
-            <button type="button" class="btn btn-sm btn-secondary">Login</button>
+            <button onclick="window.location.href='./login/register.html';" type="button" class="btn btn-sm btn-primary" style="margin-right: 5px;" >Register</button>
+            <button onclick="window.location.href='./login';" type="button" class="btn btn-sm btn-secondary">Login</button>
             </div>
         
         </div>
@@ -46,14 +46,3 @@
 
 
 
-
-
-
-  <!--  <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Einloggen</a>
-              </li> 
-            </ul>-->
