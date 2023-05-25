@@ -1,0 +1,28 @@
+<!-- register.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <form id="registerForm"> <!-- Added the id attribute -->
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="index.html">Login</a></p>
+        <p><a href="..">Return Home</a></p>
+    </div>
+    <script>
+    // Output the form element with the specified ID to the console
+    console.log(document.getElementById('registerForm'));
+</script>
+
+</body>
+</html>

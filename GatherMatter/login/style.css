@@ -1,0 +1,22 @@
+/* style.css */
+
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+input, button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+}
+
+p {
+    margin-top: 20px;
+}
+
