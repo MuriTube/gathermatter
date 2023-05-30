@@ -12,6 +12,11 @@
 
 <body>
   <script src="/gr01/src/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/gr01/src/bootstrap-5.3.0-alpha3-dist/js/costum.js"></script>
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
   <?php
   include($_SERVER['DOCUMENT_ROOT'] . '/gr01/sites/header.php');
 
