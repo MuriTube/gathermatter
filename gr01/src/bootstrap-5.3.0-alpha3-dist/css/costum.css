@@ -78,6 +78,7 @@ body {
         height: 100%;
         background-image: url('/gr01/src/assets/cool-background.svg');
         background-size: cover;
+        background-attachment: fixed;
   
     }
     
@@ -85,7 +86,7 @@ body {
         height: 100%;
         background-image: url('/gr01/src/assets/cool-background-reserve.svg');
         background-size: cover;
-     
+        background-attachment: fixed;
     }
     
     .padded-image {

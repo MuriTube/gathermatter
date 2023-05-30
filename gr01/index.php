@@ -19,26 +19,21 @@
     <?php
     include './sites/header.php';
     ?>
-<div class="bg-imagecostum">
-    <div class="dark-overlaycostum"></div>
-    <div class="centered-textcostum" style="max-width: 95%; margin: auto;">
-    <h1 class="display-3" style="text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); padding-bottom:20px;">Welcome to GatherMatter</h1>
+    <div class="bg-imagecostum">
+        <div class="dark-overlaycostum"></div>
+        <div class="centered-textcostum" style="max-width: 95%; margin: auto;">
+            <h1 class="display-3" style="text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); padding-bottom:20px;">Welcome to
+                GatherMatter</h1>
+            <h3>Revolutionizing Festivity - Seamless Hosting and Ticketing</h3>
+            <a href="/gr01/sites/about-us.php" class="btn btn-primary btn-lg mt-5">About us</a>
 
-
-        <!-- <p class="leadcustom" 
-            style="font-size: 1.15rem; line-height: 1.6; color: #4a4a4a; color:white; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05); max-width: 100%;">
-            Revolutionizing Festivity - Seamless Hosting and Ticketing
-        </p>-->
-        <h3>Revolutionizing Festivity - Seamless Hosting and Ticketing</h3>
-        <a href="/gr01/src/sites/about-us.php" class="btn btn-primary btn-lg mt-5">About us</a>
->
+        </div>
     </div>
-</div>
 
 
 
 
-    
+
     <!-- Content -->
     <div style=" height: 100%;
                 background-image: url('/gr01/src/assets/cool-background-reserve.svg');
@@ -92,8 +87,9 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block"
-                style="margin-bottom: 25px; margin-top: 25px;">Discover more</button>
+           
+                <a style="margin-bottom: 25px; margin-top: 10px;" href="/gr01/sites/events.php" class="btn btn-primary btn-lg">Discover more</a>
+
         </div>
     </div>
     <div style="height: 100%; 
@@ -138,11 +134,11 @@
                 </div>
                 <a class="carousel-control-prev" href="#meinKarussell" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Vorheriger</span>
+                    <span class="visually-hidden">Next</span>
                 </a>
                 <a class="carousel-control-next" href="#meinKarussell" role="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Nächster</span>
+                    <span class="visually-hidden">Previous</span>
                 </a>
             </div>
 
@@ -161,13 +157,12 @@
                         events meticulously designed and managed by our esteemed clients. Witness firsthand the
                         spectacular festivals they've created using our platform, and get inspired for your own event
                         journey. Click here to venture into our gallery."</p>
-                    <button type="button" class="btn btn-primary btn-lg btn-blockx" id="exploreButton">Explore
-                        magic</button>
+                        <a style="margin-bottom: 25px; margin-top: 10px;" href="/gr01/sites/portfolio.php" class="btn btn-primary btn-lg">Explore Magic</a>
                 </div>
             </div>
             <div class="row mt-5 justify-content-center">
                 <div class="col-lg-12 text-center">
-                    <h1>Our team</h1>
+                    <h2>Our team</h2>
                     <p class="mx-auto" style="max-width: 80%;">"Meet our dedicated team, relentlessly committed to
                         enhancing your experience."</p>
                 </div>

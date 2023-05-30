@@ -44,6 +44,9 @@
 
         <h4>Copyright Notice:</h4>
         <p>All content and materials on this website, including but not limited to text, images, graphics, logos, and videos, are the property of EventMaster GmbH and are protected by copyright laws. Any unauthorized use, reproduction, or distribution of the materials on this website is prohibited.</p>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/anruf" title="anruf Icons">Anruf Icons erstellt von Ilham Fitrotul Hayat - Flaticon</a>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/mail" title="mail Icons">Mail Icons erstellt von Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/de/kostenlose-icons/stift" title="stift Icons">Stift Icons erstellt von Freepik - Flaticon</a>
     </div>
 <?php
     include($_SERVER['DOCUMENT_ROOT'] . '/gr01/sites/footer.php');

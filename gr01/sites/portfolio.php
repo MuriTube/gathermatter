@@ -11,13 +11,13 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/gr01/src/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/gr01/src/bootstrap-5.3.0-alpha3-dist/css/costum.css">
-  <script src="main.js"></script>
+  
 </head>
 
 <body>
+<script src="/gr01/src/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
   <?php
   include($_SERVER['DOCUMENT_ROOT'] . '/gr01/sites/header.php');
-
   ?>
  
 
@@ -52,7 +52,7 @@
   </section>
 </div>
   <!-- Javascripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.y.com/jquerjquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
