@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url('/gr01/src/fonts/static/Manrope-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Manrope';
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0d6efd;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    transform: translateX(0);
+}
+
+.bg-imagecostum {
+    background-image: url('/gr01/src/assets/title-img-event.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-overlaycostum {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.centered-textcostum {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    max-width: 80%;  /* Limit the width of the text to 80% of the parent container */
+    padding: 1rem;   /* Add some padding around the text */
+}
+
+
+    .team-member {
+        margin: 20px 0;
+      }
+
+      .team-member img {
+        width: 100%;
+      }
+
+      .padded-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+       
+    .section-background-first {
+        height: 100%;
+        background-image: url('/gr01/src/assets/cool-background.svg');
+        background-size: cover;
+  
+    }
+    
+    .section-background-second {
+        height: 100%;
+        background-image: url('/gr01/src/assets/cool-background-reserve.svg');
+        background-size: cover;
+     
+    }
+    
+    .padded-image {
+        display: flex;
+        justify-content: center;
+        padding: 25px;
+    }
+    
+    .team-img {
+        width: 70%;
+        border-radius: 5px;
+    }
+
+    
+    @media (max-width: 992px) { 
+        .btn-group-responsive {
+            margin-top: 10px;
+        }
+    }
+    

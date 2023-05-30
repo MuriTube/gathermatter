@@ -1,15 +1,10 @@
-<footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm-3 text-center">Spalte 1</div>
-          <div class="col-sm-3 text-center">Spalte 2</div>
-          <div class="col-sm-3 text-center">Spalte 3</div>
-          <div class="col-sm-3 text-center">Spalte 4</div>
-        </div>
-        <div class="row">
-          <div class="col text-center">
-            <p class="mb-0">GatherMatter&copy; 2023</p>
-          </div>
-        </div>
-      </div>
+<div class="container">
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="/gr01/sites/imprint.php" class="nav-link px-2 text-muted">Imprint</a></li>
+            <li class="nav-item"><a href="/gr01/sites/terms.php" class="nav-link px-2 text-muted">Terms & Conditions</a></li>
+            <li class="nav-item"><a href="/gr01/sites/Privacypolicy.php" class="nav-link px-2 text-muted">Privacy policy</a></li>
+        </ul>
+        <p class="text-center text-muted">GatherMatter&copy; 2023</p>
     </footer>
+</div>
