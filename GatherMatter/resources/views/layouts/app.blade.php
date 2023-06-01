@@ -80,6 +80,11 @@
                                     Adminpanel
                                 </a>
                             @endif
+                            @if (Auth::user()->role == 'admin' || 'organizer')
+                                <a class="dropdown-item" href="{{ route('events.index') }}">
+                                    My Events
+                                </a>
+                            @endif
                             <button class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </button>
