@@ -24,6 +24,7 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 30.06.2023|3.2.1.1| 7:30 - 10:00 | 2h 30m | LBS | Implementierung Laravel | - | Laravel Dokus
 30.06.2023|3.2.2.1| 16:30 - 17:30 | 1h | Home | Datenbank migrationen (User)| - | Laravel Dokus
 31.06.2023| - | 16:30 - 17:30 | 1h | Home | Frontend implementierung nach Laravel | - | -
+01.06.2023| - | 9:25 - 12:50 | 3h | LBS | Implementierung Adminpanel für Benutzermangement | - | Laravel Dokus
 
 ## Murilo:
 
