@@ -59,7 +59,7 @@
                 </div>
             </div>
            
-                <a style="margin-bottom: 20px; margin-top: 20px;" href="{{ route('events') }}" class="btn btn-primary btn-lg">Discover more</a>
+                <a style="margin-bottom: 20px; margin-top: 20px;" href="{{ route('upevents') }}" class="btn btn-primary btn-lg">Discover more</a>
 
         </div>
     </div>

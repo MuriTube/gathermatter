@@ -23,6 +23,6 @@ class EventViewController extends Controller
      */
     public function index()
     {
-        return view('sites.events');
+        return view('sites.upevents');
     }
 }

@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
         'role', // hinzugefügt 'role' zum fillable Array
     ];
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -53,7 +53,7 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Hier Seiten routes anpassen
-Route::get('/events', [App\Http\Controllers\EventViewController::class, 'index'])->name('events');
+Route::get('/upevents', [App\Http\Controllers\EventViewController::class, 'index'])->name('upevents');
 
 use App\Http\Controllers\AdminController;
 // Für Adminpanel um userroles anzupassen
@@ -63,4 +63,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
 });
+
+use App\Http\Controllers\EventController;
+
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+Route::post('/events', [EventController::class, 'store'])->name('events.store');
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 
