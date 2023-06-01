@@ -71,6 +71,9 @@ class Kernel extends HttpKernel
         // Diese Middleware wird verwendet, um sicherzustellen, dass nur Benutzer mit der Rolle "Admin" auf bestimmte Routen zugreifen können.
         // '\App\Http\Middleware\CheckAdminRole::class' ist der vollqualifizierte Klassenname der Middleware.
         'admin' => \App\Http\Middleware\CheckAdminRole::class,
+        //&
+        'adminOrOrganizer' => \App\Http\Middleware\CheckOrganizerRole::class,
+        
     ];
     
     
