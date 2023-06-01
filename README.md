@@ -19,7 +19,11 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 22.06.2023|3.1.1.1| 10:00 - 13:00 | 3h | LBS | Header & Navigation + indexpage | - | -
 23.06.2023|3.1.1.2| 7:00 - 10:00 | 3h | LBS | Veranstaltungskarten | - | Diverses aus Dokus
 24.06.2023|3.1.1.3| 16:30 - 19:30 | 3h | Home | Veranstaltungsdetails | - | Diverses aus Dokus
-
+25.06.2023|3.1.2.3| 9:25 - 13:25 | 4h | LBS | Responsivdesign | - | Bootstrap Dokus
+26.06.2023|3.1.2.3| 16:30 - 20:30 | 4h | Home | Fertigstellung Responsivdesign | - | Bootstrap Dokus
+30.06.2023|3.2.1.1| 7:30 - 10:00 | 2h 30m | LBS | Implementierung Laravel | - | Laravel Dokus
+30.06.2023|3.2.2.1| 16:30 - 17:30 | 1h | Home | Datenbank migrationen (User)| - | Laravel Dokus
+31.06.2023| - | 16:30 - 17:30 | 1h | Home | Frontend implementierung nach Laravel | - | -
 
 ## Murilo:
 
