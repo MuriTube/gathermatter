@@ -13,13 +13,21 @@
     <!-- Local CSS files -->
     @vite('resources/css/custom.css')
     @vite('resources/css/bootstrap.min.css')
-   
+
     <!-- Local Fonts (EB) -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-   
+    <style>
+        @media (max-width: 992px) { /* Anpassung je nach Bedarf */
+            .btn-group {
+                position: absolute;
+                right: 80px; /* Anpassung je nach Bedarf */
+                top: 25px; /* Anpassung je nach Bedarf */
+            }
+        }
+    </style>
 
 </head>
 <body>
@@ -48,7 +56,7 @@
                 </li>
             </ul>
         </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <form class="d-flex mt-2 mt-lg-0" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
                 <button class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;" type="submit">Search</button>
