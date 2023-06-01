@@ -20,5 +20,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
+        <div class="d-flex justify-content-center mt-3">
+                <a href="{{ route('events.index') }}" class="btn btn-secondary">Go Back</a>
+            </div>
     </div>
 @endsection
