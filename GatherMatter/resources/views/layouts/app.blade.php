@@ -67,6 +67,11 @@
                             {{ Auth::user()->name }}
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
+                            @if (Auth::user()->role == 'admin')
+                                <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                    Adminpanel
+                                </a>
+                            @endif
                             <button class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </button>
@@ -80,6 +85,7 @@
         </div>
     </div>
 </nav>
+
 
         <main>
             @yield('content')

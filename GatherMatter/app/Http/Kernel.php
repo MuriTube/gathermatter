@@ -64,4 +64,14 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    protected $routeMiddleware = [
+        
+        // Registrierung der "CheckAdminRole"-Middleware unter dem Schlüssel 'admin'.
+        // Diese Middleware wird verwendet, um sicherzustellen, dass nur Benutzer mit der Rolle "Admin" auf bestimmte Routen zugreifen können.
+        // '\App\Http\Middleware\CheckAdminRole::class' ist der vollqualifizierte Klassenname der Middleware.
+        'admin' => \App\Http\Middleware\CheckAdminRole::class,
+    ];
+    
+    
 }

@@ -54,3 +54,13 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Hier Seiten routes anpassen
 Route::get('/events', [App\Http\Controllers\EventViewController::class, 'index'])->name('events');
+
+use App\Http\Controllers\AdminController;
+// Für Adminpanel um userroles anzupassen
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/{user}', [AdminController::class, 'show'])->name('admin.show');
+    Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('admin.update');
+    Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
+});
+
