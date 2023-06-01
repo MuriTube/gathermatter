@@ -18,7 +18,7 @@
                             </div>
                         @elseif (Auth::user()->role === 'organizer')
                             <p class="lead text-center">
-                                {{ __('You are logged in as an organizer!') }}
+                                {{ __('You are logged in as an organizer') }}
                             </p>
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('events.index') }}" class="btn btn-primary">Go to My Events</a>
@@ -28,7 +28,7 @@
                                 {{ __('You are logged in! Now you can explore our platform.') }}
                             </p>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('events.index') }}" class="btn btn-primary">Explore Events</a>
+                                <a href="{{ route('upevents') }}" class="btn btn-primary">Explore Events</a>
                             </div>
                         @endif
                     </div>
