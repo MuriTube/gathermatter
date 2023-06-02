@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -23,13 +24,16 @@ class EventController extends Controller
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->date = $request->input('date');
+        $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
         $event->save();
+        
 
         return redirect()->route('events.index')->with('success', 'Event created successfully');
     }
 
     public function show(Event $event)
-    {
+    {   
+        $event->load('organizer'); // Laden des Veranstalters
         return view('events.show', ['event' => $event]);
     }
 
@@ -43,7 +47,9 @@ class EventController extends Controller
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->date = $request->input('date');
+        $event->organizerID = Auth::user()->id;
         $event->save();
+        
 
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }

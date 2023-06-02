@@ -4,6 +4,7 @@
         <h1 class="mb-4">Create Event</h1>
         <form action="{{ route('events.store') }}" method="POST">
             @csrf
+            <input type="hidden" name="organizerID" value="{{ Auth::user()->id }}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
                 <input type="text" name="title" class="form-control">
