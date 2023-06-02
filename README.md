@@ -27,7 +27,7 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 01.06.2023|3.2.1.1| 9:25 - 12:50 | 3h | LBS | Register/Login + Implementierung Adminpanel für Benutzermangement  | - | Laravel Dokus
 01.06.2023|3.2.1.2| 18:25 - 21:25 | 3h | Home | Implementierung Events | - | Laravel Dokus
 01.06.2023|3.2.1.2| 22:00 - 23:00 | 1h | Home | Rolemangement für Events angepasst | - | Laravel Dokus
-02.06.2023|3.2.1.2| 7:30 - 8:30 | 1h | Home | Implementierung Editing für Admin | - | Laravel Dokus
+02.06.2023|3.2.1.2| 7:30 - 8:30 | 1h | LBS | Implementierung Editing für Admin | - | Laravel Dokus
 
 ## Murilo:
 
