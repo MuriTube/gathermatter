@@ -36,7 +36,17 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 09.05.2023|1.1|07:30 - 10:00| 2h 15m | LBS | PSP Umsetzung | - | Diverses aus Eduvidual
 10.05.2023|1.1|12:20 - 13:20| 1h | LBS | Projekthandbuch | - | -
 11.05.2023|1.3|9:25 - 10:25 | 1h | LBS | Risikomanagement Analyse | - | -
-
+12.05.2023|2.3|10:30 - 11:00 | 30m | LBS | Datenbankdesign | - | -
+15.05.2023|2.1|10:00 - 12:20 | 2h 20m | LBS | Erstellen von Wireframes und Mockups | - | -
+16.05.2023|2.2| 07:30 - 10:00 | 2h 30m | LBS | Festlegung des UI Design | - | -
+22.05.2023|3.1.1.1| 10:00 - 13:00 | 3h | LBS | Header & Navigation + indexpage | - | -
+23.05.2023|3.2.2.1| 7:00 - 10:00 | 3h | LBS | Integriertes Datenbankdesign | - | -
+25.05.2023| - | - | - | LBS | Abwesend | - | -
+26.05.2023| - | - | - | LBS | Abwesend | - | -
+30.05.2023|3.2.1.1| 7:30 - 10:00 | 2h 30m | LBS | Implementierung Laravel | - | Laravel Dokus
+31.05.2023| - | - | - | LBS | Abwesend | - | -
+01.06.2023| - | - | - | LBS | Abwesend | - | -
+01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - | 
 
 
 ### Vorläufige Datenbankstruktur
