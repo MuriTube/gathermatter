@@ -77,3 +77,12 @@ Route::group(['middleware' => ['auth', 'adminOrOrganizer']], function () {
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 });
 
+use App\Http\Controllers\TicketController;
+
+Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::get('/tickets/create/{event}', [TicketController::class, 'create'])->name('tickets.create');
+Route::post('/tickets/store/{event}', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');

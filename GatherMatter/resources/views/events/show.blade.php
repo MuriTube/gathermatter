@@ -11,6 +11,9 @@
                         <hr class="my-4">
                         <p class="card-text">{{ $event->description }}</p>
                         <p class="card-text"><strong>Date:</strong> {{ $event->date }}</p>
+                        <!-- Here is the new button -->
+                        <a href="{{ route('tickets.create', $event->id) }}" class="btn btn-primary mt-3">Create Ticket</a>
+                        <a href="{{ route('tickets.index') }}" class="btn btn-secondary mt-3">View Tickets</a>
                     </div>
                 </div>
             </div>
