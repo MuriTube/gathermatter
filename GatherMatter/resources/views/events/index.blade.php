@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <div class="container-fluid py-5">
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-md-10">
             @if(Auth::user()->role === 'organizer')
@@ -32,7 +40,7 @@
                                     @if(Auth::user()->role === 'admin' || (Auth::user()->role === 'organizer' && $event->organizerID === Auth::user()->id))
                                         <div class="btn-group">
                                             <a href="{{ route('events.edit', $event) }}" class="btn btn-secondary ml-md-2">Edit</a>
-                                            <form action="{{ route('events.destroy', $event) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('events.destroy', $event) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete the event: {{ $event->title }}?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger ml-md-2">Delete</button>
