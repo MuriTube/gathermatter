@@ -22,6 +22,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                <!-- Neue Fehlermeldung für den bereits vorhandenen Benutzernamen -->
+                                @if ($errors->has('duplicate_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('duplicate_name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
