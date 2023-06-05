@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('upevents') }}">Events</a>
+                    <a class="nav-link" href="{{ route('events.index') }}">Events</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('aboutus') }}">About us</a>
@@ -78,16 +78,6 @@
                             @if (Auth::user()->role == 'admin')
                                 <a class="dropdown-item" href="{{ route('admin.index') }}">
                                     Adminpanel
-                                </a>
-                            @endif
-                            @if (Auth::user()->role == 'organizer')
-                                <a class="dropdown-item" href="{{ route('events.index') }}">
-                                    My Events
-                                </a>
-                            @endif
-                            @if (Auth::user()->role == 'admin')
-                                <a class="dropdown-item" href="{{ route('events.index') }}">
-                                    All Events
                                 </a>
                             @endif
                             <button class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

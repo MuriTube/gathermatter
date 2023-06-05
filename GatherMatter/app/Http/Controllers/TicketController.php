@@ -88,11 +88,11 @@ class TicketController extends Controller
             'tier' => 'required',
             'description' => 'required',
         ]);
-
+        $event = $ticket->event; 
         $ticket->fill($validatedData);
         $ticket->save();
 
-        return redirect()->route('tickets.show', [$ticket])->with('success', 'Ticket updated successfully');
+        return redirect()->route('events.show', $event)->with('success', 'Ticket updated successfully');
     }
 
     /**
@@ -102,8 +102,11 @@ class TicketController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Ticket $ticket)
-    {
+    {   
+        $event = $ticket->event; 
+        // Speichern des Event-Objekts, bevor das Ticket gelöscht wird
         $ticket->delete();
-        return redirect()->route('tickets.index')->with('success', 'Ticket deleted successfully');
+        return redirect()->route('events.show', $event)->with('success', 'Ticket deleted successfully');
     }
+    
 }

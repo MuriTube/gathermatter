@@ -28,7 +28,7 @@
                                 {{ __('You are logged in! Now you can explore our platform.') }}
                             </p>
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('upevents') }}" class="btn btn-primary">Explore Events</a>
+                                <a href="{{ route('events.index') }}" class="btn btn-primary">Explore Events</a>
                             </div>
                         @endif
                     </div>

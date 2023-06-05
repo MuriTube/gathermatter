@@ -33,7 +33,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {   
-        $event->load('organizer'); // Laden des Veranstalters
+        $event->load('organizer', 'tickets'); // Laden des Veranstalters
         return view('events.show', ['event' => $event]);
     }
 
@@ -56,8 +56,15 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
+        $ticketCount = $event->tickets()->count();
+    
+        if ($ticketCount > 0) {
+            return redirect()->route('events.show', $event)->with('error', 'Cannot delete the event. Please delete all tickets associated with this event first.');
+        }
+    
         $event->delete();
-
+    
         return redirect()->route('events.index')->with('success', 'Event deleted successfully');
     }
+    
 }
