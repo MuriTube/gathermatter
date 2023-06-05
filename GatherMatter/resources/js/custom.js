@@ -20,3 +20,14 @@ window.addEventListener('DOMContentLoaded', function() {
     setTimeout(hidePreloader, 400); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
   });
   
+  function previewImage(event) {
+    var reader = new FileReader();
+    var imageField = document.getElementById("preview");
+    
+    reader.onload = function() {
+        if (reader.readyState == 2) {
+            imageField.src = reader.result;
+            imageField.style.display = "block";
+        }
+    }
+    reader.readAsDataURL(event.target.files[0])};

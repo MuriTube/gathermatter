@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="mb-4">Edit Event</h1>
-        <form action="{{ route('events.update', $event) }}" method="POST">
+        <form action="{{ route('events.update', $event) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -18,10 +18,16 @@
                 <label for="date" class="form-label">Date:</label>
                 <input type="datetime-local" name="date" class="form-control" value="{{ $event->date }}">
             </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Aktuelles Event-Bild:</label><br>
+                <img src="{{ asset('storage/' . $event->image_path) }}" alt="Event Image" width="200"><br>
+                <label for="image">Neue Event-Bild:</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
         <div class="d-flex justify-content-center mt-3">
-                <a href="{{ route('events.index') }}" class="btn btn-secondary">Go Back</a>
-            </div>
+            <a href="{{ route('events.index') }}" class="btn btn-secondary">Go Back</a>
+        </div>
     </div>
 @endsection

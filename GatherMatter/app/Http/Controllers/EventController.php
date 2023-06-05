@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -25,14 +27,22 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
-        $event->save();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/events');
+
+            $event->image_path = str_replace('public/', '', $imagePath);
+            
+        }
         
+
+        $event->save();
 
         return redirect()->route('events.index')->with('success', 'Event created successfully');
     }
 
     public function show(Event $event)
-    {   
+    {
         $event->load('organizer', 'tickets'); // Laden des Veranstalters
         return view('events.show', ['event' => $event]);
     }
@@ -48,8 +58,17 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id;
+
+        if ($request->hasFile('image')) {
+            $oldImagePath = $event->image_path;
+            $imagePath = $request->file('image')->store('images/events', 'public');
+            if ($oldImagePath !== $imagePath) {
+                Storage::disk('public')->delete($oldImagePath);
+            }
+            $event->image_path = $imagePath;
+        }
+
         $event->save();
-        
 
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }
@@ -57,14 +76,17 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $ticketCount = $event->tickets()->count();
-    
+
         if ($ticketCount > 0) {
             return redirect()->route('events.show', $event)->with('error', 'Cannot delete the event. Please delete all tickets associated with this event first.');
         }
-    
+
+        if ($event->image_path) {
+            Storage::disk('public')->delete($event->image_path);
+        }
+
         $event->delete();
-    
+
         return redirect()->route('events.index')->with('success', 'Event deleted successfully');
     }
-    
 }

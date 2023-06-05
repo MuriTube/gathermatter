@@ -20,7 +20,7 @@
                         @if($event->organizerID === Auth::user()->id)
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <div class="card h-100 shadow">
-                                    <img src="https://placehold.co/600x400" class="card-img-top" alt="Event Image">
+                                <img src="{{ asset('storage/' . $event->image_path) }}" class="card-img-top" alt="Event Image">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $event->title }}</h5>
                                         <h5 class="card-subtitle mb-2 text-muted">Organized by: {{ $event->organizer->name }}</h5>
@@ -50,14 +50,14 @@
                 <h3>All Events</h3>
                 @if(Auth::user() && Auth::user()->role === 'admin')
                     <a href="{{ route('events.create') }}" class="btn btn-secondary">Create New Event</a>
-                    @endif
+                @endif
             </div>
             <div class="row">
                 @foreach($events as $event)
                     @if(!Auth::user() || $event->organizerID !== Auth::user()->id || (Auth::user() && Auth::user()->role === 'admin'))
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100 shadow">
-                                <img src="https://placehold.co/600x400" class="card-img-top" alt="Event Image">
+                                <img src="{{ asset('storage/' . $event->image_path) }}" class="card-img-top" alt="Event Image">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                     <h5 class="card-subtitle mb-2 text-muted">Organized by: {{ $event->organizer->name }}</h5>
