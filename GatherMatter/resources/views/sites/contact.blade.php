@@ -4,7 +4,7 @@
     <div class="loader"></div>
   </div>
   <div class="section-background-first">
-    <<section id="contact" class="py-5">
+    <section id="contact" class="py-5">
       <div class="container">
         <h2 class="text-center mb-4">Contact</h2>
         <div class="row">

@@ -119,9 +119,7 @@
     </footer>
 </div>
     </div>
-    @vite('resources/js/custom.js')
-    @vite('resources/js/bootstrap.bundle.min.js')
-    @vite('resources/js/bootstrap.bundle.js')
+     @vite('resources/js/custom.js')
     <div id="cookie-banner" class="cookie-banner">
   <div class="container">
     <div class="row">
