@@ -122,5 +122,23 @@
     @vite('resources/js/custom.js')
     @vite('resources/js/bootstrap.bundle.min.js')
     @vite('resources/js/bootstrap.bundle.js')
+    <div id="cookie-banner" class="cookie-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="cookie-message text-center">
+          <p class="mb-3">We use cookies to enhance your experience on our website. By continuing to browse this site, you consent to the use of cookies.</p>
+          <p class="text-muted">Please note that by not accepting cookies, some features and functionalities of the website may be limited.</p>
+          <div class="text-center">
+            <button class="btn btn-primary accept-button">Accept</button>
+            <br><br>
+            <a href="{{ route('privacypolicy') }}" class="privacy-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
