@@ -48,6 +48,9 @@
             @endif
             <div class="text-center mb-4">
                 <h3>All Events</h3>
+                @if(Auth::user() && Auth::user()->role === 'admin')
+                    <a href="{{ route('events.create') }}" class="btn btn-secondary">Create New Event</a>
+                    @endif
             </div>
             <div class="row">
                 @foreach($events as $event)
