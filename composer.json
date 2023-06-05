@@ -1,0 +1,5 @@
+{
+    "require": {
+        "laravel/breeze": "^1.21"
+    }
+}
