@@ -29,7 +29,8 @@ class EventController extends Controller
         $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images/events', 'public');
+            $imagePath = $request->file('image')->store('public/events');
+
             $event->image_path = str_replace('public/', '', $imagePath);
             
         }
@@ -42,11 +43,9 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        $event->load('organizer', 'tickets');
-        $imageUrl = Storage::url($event->image_path);
-        return view('events.show', ['event' => $event, 'imageUrl' => $imageUrl]);
+        $event->load('organizer', 'tickets'); // Laden des Veranstalters
+        return view('events.show', ['event' => $event]);
     }
-    
 
     public function edit(Event $event)
     {
@@ -59,19 +58,18 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id;
-    
+
         if ($request->hasFile('image')) {
-            // Wenn ein altes Bild existiert, löschen Sie es.
-            if ($event->image_path) {
-                Storage::disk('public')->delete('images/events/' . $event->image_path);
-            }
-            // Speichern Sie das neue Bild und aktualisieren Sie den image_path im Event.
+            $oldImagePath = $event->image_path;
             $imagePath = $request->file('image')->store('images/events', 'public');
-            $event->image_path = str_replace('public/', '', $imagePath);
+            if ($oldImagePath !== $imagePath) {
+                Storage::disk('public')->delete($oldImagePath);
+            }
+            $event->image_path = $imagePath;
         }
-    
+
         $event->save();
-    
+
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }
 
