@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class Event extends Model
-{
+{   
     // Tabellenverknüpfung angeben
     protected $table = 'events';
 
     use HasFactory;
-
+    
     protected $fillable = [
         'title',
         'description',
@@ -31,11 +31,5 @@ class Event extends Model
     public function tickets()
     {
         return $this->hasMany(Ticket::class, 'eventID');
-    }
-
-    public function images()
-    {
-        return $this->hasMany(EventImage::class);
-    }
-
+    }     
 }
