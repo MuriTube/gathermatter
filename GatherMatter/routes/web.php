@@ -93,6 +93,10 @@ Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'edi
 Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 Route::put('/profile/update-password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
