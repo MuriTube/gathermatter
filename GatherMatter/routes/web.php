@@ -61,6 +61,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/{user}', [AdminController::class, 'show'])->name('admin.show');
     Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::put('/admin/show/{user}', [App\Http\Controllers\AdminController::class, 'updateProfile'])->name('admin.updateProfile');
 });
 
 use App\Http\Controllers\EventController;
