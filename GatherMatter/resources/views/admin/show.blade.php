@@ -75,16 +75,16 @@
                     <button type="submit" class="btn btn-primary mt-2">Update user profile</button>
                 </form>
 
-                <form method="POST" action="{{ route('admin.destroy', $user) }}">
-                    @csrf
-                    @method('DELETE')
+                <form method="POST" action="{{ route('admin.destroy', $user) }}" onsubmit="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">
+                @csrf
+                @method('DELETE')
 
-                    <div class="form-group row">
-                        <div class="col">
-                            <button type="submit" class="btn btn-danger mt-2">Delete User</button>
-                        </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-danger mt-2">Delete User</button>
                     </div>
-                </form>
+                </div>
+            </form>
 
                 <div class="mt-4">
                     <a href="{{ route('admin.index') }}" class="btn btn-secondary">Go Back</a>
