@@ -21,6 +21,7 @@
                         <hr class="my-4">
                         <p class="card-text">{{ $event->description }}</p>
                         <p class="card-text"><strong>Date:</strong> {{ $event->date }}</p>
+                     <!--   <img src="{{ $imageUrl }}" alt="Event Image"> -->
                         <!-- Here is the new button -->
                         @if(Auth::user() && (Auth::user()->role === 'admin' || (Auth::user()->role === 'organizer' && $event->organizerID === Auth::user()->id)))
                             <a href="{{ route('tickets.create', $event->id) }}" class="btn btn-primary mt-3">Create Ticket</a>

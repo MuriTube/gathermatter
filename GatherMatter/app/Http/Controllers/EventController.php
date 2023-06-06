@@ -29,8 +29,7 @@ class EventController extends Controller
         $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/events');
-
+            $imagePath = $request->file('image')->store('images/events', 'public');
             $event->image_path = str_replace('public/', '', $imagePath);
             
         }
@@ -43,9 +42,11 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        $event->load('organizer', 'tickets'); // Laden des Veranstalters
-        return view('events.show', ['event' => $event]);
+        $event->load('organizer', 'tickets');
+        $imageUrl = Storage::url($event->image_path);
+        return view('events.show', ['event' => $event, 'imageUrl' => $imageUrl]);
     }
+    
 
     public function edit(Event $event)
     {
