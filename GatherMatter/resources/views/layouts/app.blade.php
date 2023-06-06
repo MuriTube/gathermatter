@@ -80,6 +80,9 @@
                                     Adminpanel
                                 </a>
                             @endif
+                            <a class="dropdown-item" href="{{ route('profile.index') }}">
+                            My Profile
+                            </a>
                             <button class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </button>
