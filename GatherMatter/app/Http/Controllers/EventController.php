@@ -32,9 +32,9 @@ class EventController extends Controller
             $imagePath = $request->file('image')->store('public/events');
 
             $event->image_path = str_replace('public/', '', $imagePath);
-            
+
         }
-        
+
 
         $event->save();
 
@@ -44,7 +44,8 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $event->load('organizer', 'tickets'); // Laden des Veranstalters
-        return view('events.show', ['event' => $event]);
+        $imagePath = $event->image_path; // Get the image path
+        return view('events.show', ['event' => $event, 'imagePath' => $imagePath]);
     }
 
     public function edit(Event $event)

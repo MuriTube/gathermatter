@@ -18,6 +18,9 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h1 class="card-title">{{ $event->title }}</h1>
+                        @if($imagePath)
+                            <img src="{{ asset('storage/' . $imagePath) }}" alt="Event Image" class="img-fluid">
+                        @endif
                         <hr class="my-4">
                         <p class="card-text">{{ $event->description }}</p>
                         <p class="card-text"><strong>Date:</strong> {{ $event->date }}</p>
