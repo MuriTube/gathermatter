@@ -46,8 +46,16 @@
                 </div>
                 <hr class="my-5">
             @endif
-            <div class="text-center mb-4">
-                <h3>All Events</h3>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="dropdown">
+                    <form action="{{ route('events.index') }}" method="GET" class="d-inline">
+                        <select name="sort" onchange="this.form.submit()" class="form-select">
+                            <option value="date" {{ request('sort') === 'date' ? 'selected' : '' }}>Sort by date</option>
+                            <option value="title" {{ request('sort') === 'title' ? 'selected' : '' }}>Sort by title</option>
+                        </select>
+                    </form>
+                </div>
+                <h3 class="mb-0">All Events</h3>
                 @if(Auth::user() && Auth::user()->role === 'admin')
                     <a href="{{ route('events.create') }}" class="btn btn-secondary">Create New Event</a>
                 @endif

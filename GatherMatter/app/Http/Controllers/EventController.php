@@ -9,11 +9,19 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::all();
-        return view('events.index', ['events' => $events]);
+        $sortOption = $request->input('sort', 'date'); // Default sort option is 'date'
+
+        if ($sortOption === 'title') {
+            $events = Event::orderBy('title')->get();
+        } else {
+            $events = Event::orderBy('date')->get();
+        }
+
+        return view('events.index', ['events' => $events, 'sort' => $sortOption]);
     }
+
 
     public function create()
     {
