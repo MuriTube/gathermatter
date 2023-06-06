@@ -59,18 +59,19 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id;
-
+    
         if ($request->hasFile('image')) {
-            $oldImagePath = $event->image_path;
-            $imagePath = $request->file('image')->store('images/events', 'public');
-            if ($oldImagePath !== $imagePath) {
-                Storage::disk('public')->delete($oldImagePath);
+            // Wenn ein altes Bild existiert, löschen Sie es.
+            if ($event->image_path) {
+                Storage::disk('public')->delete('images/events/' . $event->image_path);
             }
-            $event->image_path = $imagePath;
+            // Speichern Sie das neue Bild und aktualisieren Sie den image_path im Event.
+            $imagePath = $request->file('image')->store('images/events', 'public');
+            $event->image_path = str_replace('public/', '', $imagePath);
         }
-
+    
         $event->save();
-
+    
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }
 
