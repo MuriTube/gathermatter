@@ -36,6 +36,31 @@ class AdminController extends Controller
         return back()->with('status', 'Benutzerrolle wurde erfolgreich aktualisiert.');
     }
 
+        /**
+     * Update the specified user profile by the admin.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     */
+    public function updateProfile(Request $request, User $user)
+{
+    $request->validate([
+        'name' => 'required|max:255',
+        'firstname' => 'required|max:255',
+        'surname' => 'required|max:255',
+        'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+        'telefon' => 'nullable|max:255',
+        'zip' => 'required|max:10',
+        'city' => 'required|max:255',
+    ]);
+
+    $user->fill($request->all());
+    $user->save();
+
+    return redirect()->route('admin.show', $user)->with('status', 'Benutzerprofil wurde erfolgreich aktualisiert!');
+}
+
+
     // Die destroy-Methode. Diese Methode wird aufgerufen, wenn eine DELETE-Anfrage an die URL /admin/{user} gesendet wird.
     // Der {user}-Parameter in der URL wird automatisch durch eine Instanz des User-Models ersetzt, die die angegebene ID hat.
     public function destroy(User $user)
