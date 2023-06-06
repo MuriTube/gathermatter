@@ -18,8 +18,8 @@
                 <input type="datetime-local" name="date" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Event-Bild:</label>
-                <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
+                <label for="image" class="form-label">Event Images:</label>
+                <input type="file" class="form-control" id="image" name="images[]" onchange="previewImage(event)" multiple>
                 <img id="preview" src="#" alt="Event Image Preview" style="width: 150px; display: none;">
             </div>
             <button type="submit" class="btn btn-primary">Create</button>

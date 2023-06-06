@@ -36,11 +36,11 @@ class EventController extends Controller
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/events');
-
-            $event->image_path = str_replace('public/', '', $imagePath);
-
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('public/events');
+                $event->images()->create(['image_path' => str_replace('public/', '', $imagePath)]);
+            }
         }
 
 
@@ -68,13 +68,11 @@ class EventController extends Controller
         $event->date = $request->input('date');
         $event->organizerID = Auth::user()->id;
 
-        if ($request->hasFile('image')) {
-            $oldImagePath = $event->image_path;
-            $imagePath = $request->file('image')->store('images/events', 'public');
-            if ($oldImagePath !== $imagePath) {
-                Storage::disk('public')->delete($oldImagePath);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('public/events');
+                $event->images()->create(['image_path' => str_replace('public/', '', $imagePath)]);
             }
-            $event->image_path = $imagePath;
         }
 
         $event->save();
@@ -90,8 +88,9 @@ class EventController extends Controller
             return redirect()->route('events.show', $event)->with('error', 'Cannot delete the event. Please delete all tickets associated with this event first.');
         }
 
-        if ($event->image_path) {
-            Storage::disk('public')->delete($event->image_path);
+        foreach ($event->images as $image) {
+            Storage::disk('public')->delete($image->image_path);
+            $image->delete();
         }
 
         $event->delete();
