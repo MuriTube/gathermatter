@@ -73,7 +73,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                     <h5 class="card-subtitle mb-2 text-muted">Organized by: {{ $event->organizer->name }}</h5>
-                                    <b>Beginn: <p class="card-text">{{ $event->date }}</p></b>
+                                    <b><p class="card-text">{{ date('jS F Y H:i', strtotime($event->date)) }}</p></b>
                                 </div>
                                 <div class="card-footer d-flex flex-column flex-md-row justify-content-between align-items-center bg-white">
                                     <a href="{{ route('events.show', $event) }}" class="btn btn-primary mb-2 mb-md-0">View Details</a>
