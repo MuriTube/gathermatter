@@ -18,7 +18,7 @@
                     @method('PATCH')
 
                     <div class="form-group">
-                        <label for="role">Rolle</label>
+                        <label for="role">Role</label>
                         <select name="role" class="form-control" id="role">
                             <option value="user" @if ($user->role == 'user') selected @endif>User</option>
                             <option value="admin" @if ($user->role == 'admin') selected @endif>Admin</option>

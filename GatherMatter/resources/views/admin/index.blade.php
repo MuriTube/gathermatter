@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <h1 class="my-4">Adminpanel</h1>
-    <h2 class="mb-4">Benutzermanagement</h2>
+    <h2 class="mb-4">Usermanagement</h2>
 
     @if (session('status'))
         <div class="alert alert-success">
@@ -15,10 +15,10 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Username:</th>
                 <th>E-Mail</th>
-                <th>Rolle</th>
-                <th>Aktionen</th>
+                <th>Role</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ ucfirst($user->role) }}</td>
                     <td>
-                        <a href="{{ route('admin.show', $user) }}" class="btn btn-info btn-sm">Anzeigen</a>
+                        <a href="{{ route('admin.show', $user) }}" class="btn btn-info btn-sm">Profile </a>
                     </td>
                 </tr>
             @endforeach
