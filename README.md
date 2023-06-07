@@ -51,25 +51,3 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - | 
 06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - | 
 
-
-
-### Vorläufige Datenbankstruktur
-
-
-![DeDotenbonkStruktua](http://lbs.muri.io:3000/4aAPC_Projekte/Gruppe1/raw/branch/main/Planung/db_diag.png)
-
-Enum User\_Rolle\_enum {  
-Veranstalter  
-Teilnehmer  
-Admin  
-}  
-
-Enum Zahlung\_Zahlungsstatus\_enum {  
-Nicht bezahlt  
-Bezahlt  
-}  
-
-Enum Zahlung\_Zahlungsart\_enum {  
-Crypto  
-PayPal  
-}  
