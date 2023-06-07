@@ -26,7 +26,8 @@ class User extends Authenticatable
         'telefon',
         'zip',
         'city',
-        'role', // hinzugefügt 'role' zum fillable Array
+        'role',// hinzugefügt 'role' zum fillable Array
+        'address',
     ];
     
     /**
