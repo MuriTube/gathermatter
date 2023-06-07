@@ -49,6 +49,8 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 31.05.2023| - | - | - | LBS | Abwesend | - | -
 01.06.2023| - | - | - | LBS | Abwesend | - | -
 01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - | 
+06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - | 
+
 
 
 ### Vorläufige Datenbankstruktur
