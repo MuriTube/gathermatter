@@ -35,8 +35,7 @@ class AdminController extends Controller
         // Leitet den Benutzer zurück zur vorherigen Seite und fügt eine Statusmeldung zur Sitzung hinzu.
         return back()->with('status', 'Benutzerrolle wurde erfolgreich aktualisiert.');
     }
-
-        /**
+    /**
      * Update the specified user profile by the admin.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -59,8 +58,6 @@ class AdminController extends Controller
 
     return redirect()->route('admin.show', $user)->with('status', 'Benutzerprofil wurde erfolgreich aktualisiert!');
 }
-
-
     // Die destroy-Methode. Diese Methode wird aufgerufen, wenn eine DELETE-Anfrage an die URL /admin/{user} gesendet wird.
     // Der {user}-Parameter in der URL wird automatisch durch eine Instanz des User-Models ersetzt, die die angegebene ID hat.
     public function destroy(User $user)
