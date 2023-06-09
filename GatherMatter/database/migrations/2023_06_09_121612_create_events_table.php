@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('maxParticipants')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->default('0000-00-00 00:00:00');
-            $table->text('image_path')->nullable();
+            $table->text('image_path')->default('images/events/no_img.jpg');
         });
     }
 
