@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('organizerID')->nullable()->index('organizerID');
             $table->integer('maxParticipants')->nullable();
             $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->default('0000-00-00 00:00:00');
+            $table->timestamp('updated_at')->useCurrent();
             $table->text('image_path')->default('images/events/no_img.jpg');
         });
     }
