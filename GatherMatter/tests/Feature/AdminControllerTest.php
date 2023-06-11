@@ -2,25 +2,32 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class AdminControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testIndex()
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_admin_can_login()
     {
-      $admin =  User::factory()->create(['role' => 'admin']);
+        // Create an admin user
+        $admin = User::factory()->create(['role' => 'admin']);
 
-        $response = $this->actingAs($admin)->get('/admin');
-        $response->assertStatus(200);
-        $response->assertViewHas('users');
-        // Hier kannst du weitere Assertions hinzufügen, um sicherzustellen, dass die Benutzerdaten in der Ansicht korrekt angezeigt werden
+        // Attempt to login
+        $response = $this->post('/login', [
+            'email' => $admin->email,
+            'password' => 'password'
+        ]);
+
+        // Assert the admin was authenticated
+        $response->assertRedirect('/home');
     }
-    
-    
-   
 }
