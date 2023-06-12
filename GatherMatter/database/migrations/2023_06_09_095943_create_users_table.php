@@ -24,6 +24,10 @@ return new class extends Migration
             $table->enum('role', ['admin', 'user', 'organizer'])->nullable()->default('user');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('telefon')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip')->nullable();
         });
     }
 
