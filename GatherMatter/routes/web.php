@@ -61,7 +61,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/{user}', [AdminController::class, 'show'])->name('admin.show');
     Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
-    Route::put('/admin/show/{user}', [App\Http\Controllers\AdminController::class, 'updateProfile'])->name('admin.updateProfile');
+    Route::put('/admin/show/{user}', [AdminController::class, 'updateProfile'])->name('admin.updateProfile');
 });
 
 use App\Http\Controllers\EventController;
@@ -88,10 +88,13 @@ Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
 Route::post('/tickets/store/{event}', [TicketController::class, 'store'])->name('tickets.store');
 
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
-Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-Route::put('/profile/update-password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
+
+use App\Http\Controllers\Auth\ProfileController;
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::put('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
