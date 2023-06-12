@@ -19,6 +19,8 @@ return new class extends Migration
             $table->decimal('price', 18);
             $table->string('tier', 100);
             $table->text('description');
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
