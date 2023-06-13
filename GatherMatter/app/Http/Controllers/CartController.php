@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Ticket;
-use App\Models\Event;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
 
-public function index()
+    public function index()
     {
-    	$cartItems = Cart::where('userID', Auth::id())->where('status', 'open')->get();
-    	foreach ($cartItems as $item) {
+        $cartItems = Cart::where('userID', Auth::id())->where('status', 'open')->get();
+        foreach ($cartItems as $item) {
             $item->ticket = Ticket::find($item->ticketID);
             if ($item->ticket) {
-            	$item->event = Event::find($item->ticket->eventID);
+                $item->event = $item->ticket->event;
             }
             error_log('Cart item: ' . $item->id);
             error_log('Ticket: ' . ($item->ticket ? $item->ticket->id : 'null'));
             error_log('Event: ' . ($item->event ? $item->event->id : 'null'));
-    	}
-    	return view('cart', ['cartItems' => $cartItems]);
+        }
+        return view('cart', ['cartItems' => $cartItems]);
     }
+
 
     public function add(Ticket $ticket, Request $request)
     {

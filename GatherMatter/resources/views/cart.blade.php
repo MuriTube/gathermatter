@@ -22,11 +22,11 @@
                             @foreach($cartItems as $item)
                                 <div class="card mb-3">
                                     <div class="card-body">
-                                        @if($item->tickets && $item->ticket->event)
-                                            <p>Event: {{ $item->tickets->event->title }}</p>
-                                            <p>Ticket: {{ $item->tickets->tier }}</p>
+                                        @if($item->ticket && $item->ticket->event)
+                                            <p>Event: {{ $item->ticket->event->title }}</p>
+                                            <p>Ticket: {{ $item->ticket->tier }}</p>
                                             <p>Quantity: {{ $item->quantity }}</p>
-                                            <p>Price: €{{ $item->tickets->price * $item->quantity }}</p>
+                                            <p>Price: €{{ $item->ticket->price * $item->quantity }}</p>
                                         @else
                                             <p>Error: Ticket or event not found for this cart item.</p>
                                         @endif
