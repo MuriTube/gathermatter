@@ -26,13 +26,9 @@ class Ticket extends Model
         return $this->belongsTo(Event::class, 'eventID');
     }
 
-    public function bookings()
-    {
-        return $this->hasMany(Booking::class, 'ticketID');
-    }
 
     public function carts()
     {
-        return $this->belongsToMany(Cart::class);
+        return $this->hasMany(Cart::class, 'ticketID');
     }
 }

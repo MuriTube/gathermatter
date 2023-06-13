@@ -12,6 +12,13 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Cart::where('userID', Auth::id())->where('status', 'open')->get();
+        foreach ($cartItems as $item) {
+            $ticket = Ticket::find($item->ticketID);
+            $event = Event::find($ticket->eventID);
+            error_log('Cart item: ' . $item->id);
+            error_log('Ticket: ' . ($ticket ? $ticket->id : 'null'));
+            error_log('Event: ' . ($event ? $event->id : 'null'));
+        }
         return view('cart', ['cartItems' => $cartItems]);
     }
 

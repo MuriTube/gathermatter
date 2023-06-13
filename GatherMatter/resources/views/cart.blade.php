@@ -20,18 +20,16 @@
                     @if(count($cartItems) > 0)
                         <ul class="list-group">
                             @foreach($cartItems as $item)
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p>Event: {{ $item->ticket->event->title }}</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p>Ticket Tier: {{ $item->ticket->tier }}</p>
-                                        </div>
-                                        <div class="col-md-4">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        @if($item->tickets && $item->tickets->event)
+                                            <p>Event: {{ $item->tickets->event->title }}</p>
+                                            <p>Ticket: {{ $item->tickets->tier }}</p>
                                             <p>Quantity: {{ $item->quantity }}</p>
-                                        </div>
-                                    </div>
+                                            <p>Price: €{{ $item->tickets->price * $item->quantity }}</p>
+                                        @else
+                                            <p>Error: Ticket or event not found for this cart item.</p>
+                                        @endif
                                     <div class="text-end">
                                         <form action="{{ route('cart.update', $item) }}" method="POST" class="d-inline">
                                             @csrf
