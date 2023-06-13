@@ -101,5 +101,16 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{ticket}', [CartController::class, 'add'])->name('cart.add');
+    Route::put('/cart/update/{cartItem}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/delete/{cartItem}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::get('/payment/initiate', [PaymentController::class, 'initiate'])->name('payment.initiate');
+});
+
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');

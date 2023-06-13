@@ -28,7 +28,7 @@
             }
         }
     </style>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div id="app">
@@ -61,6 +61,9 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
                 <button class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;" type="submit">Search</button>
             </form>
+                <a href="{{ route('cart.index') }}" class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
             <div class="d-flex btn-group-responsive">
                 @guest
                     @if (Route::has('login'))
