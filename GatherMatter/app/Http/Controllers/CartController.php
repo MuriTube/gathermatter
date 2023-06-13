@@ -9,20 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-
     public function index()
     {
         $cartItems = Cart::where('userID', Auth::id())->where('status', 'open')->get();
+        $totalPrice = 0;
         foreach ($cartItems as $item) {
             $item->ticket = Ticket::find($item->ticketID);
             if ($item->ticket) {
                 $item->event = $item->ticket->event;
+                $totalPrice += $item->ticket->price * $item->quantity;
             }
             error_log('Cart item: ' . $item->id);
             error_log('Ticket: ' . ($item->ticket ? $item->ticket->id : 'null'));
             error_log('Event: ' . ($item->event ? $item->event->id : 'null'));
         }
-        return view('cart', ['cartItems' => $cartItems]);
+        return view('cart', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice]);
     }
 
 
