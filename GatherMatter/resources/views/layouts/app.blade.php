@@ -64,12 +64,14 @@
                     </form>
                 <div id="search-results" class="position-absolute bg-white p-2 mt-2" style="display: none; z-index: 999; right: 0;"></div>
                 </div>
-                    <a href="{{ route('cart.index') }}" class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;">
+                    <button class="btn btn-link text-dark text-decoration-none">
+                    <a class="nav-link" href="{{ route('cart.index') }}">
                         <i class="fas fa-shopping-cart"></i>
-                        @if(auth()->user() && $cartItemsCount > 0)
-                            <span class="badge badge-light">{{ $cartItemsCount }}</span>
+                        @if(isset($cartItemCount) && $cartItemCount > 0)
+                            <span class="badge bg-danger">{{ $cartItemCount }}</span>
                         @endif
-                    </a>
+                    </a></button>
+
                     <div class="d-flex btn-group-responsive">
                         @guest
                             @if (Route::has('login'))

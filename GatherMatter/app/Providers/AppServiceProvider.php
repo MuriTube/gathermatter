@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,15 +20,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        view()->composer('*', function ($view) {
-            if (auth()->user()) {
-                $cartItemsCount = \App\Models\Cart::where('user_id', auth()->user()->id)
-                    ->whereHas('cart', function ($query) {
-                        $query->where('status', 'open');
-                    })->count();
-                $view->with('cartItemsCount', $cartItemsCount);
+        View::composer('*', function ($view) {
+            if (Auth::check()) {
+                $cartItems = Cart::where('userID', Auth::id())->where('status', 'open')->get();
+                $view->with('cartItemCount', count($cartItems));
             }
         });
     }
