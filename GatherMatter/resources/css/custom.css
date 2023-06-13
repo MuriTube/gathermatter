@@ -177,3 +177,9 @@ body {
         display: block;
         margin: 0 auto;
       }
+
+      #search-results {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    

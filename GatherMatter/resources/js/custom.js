@@ -31,3 +31,74 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     reader.readAsDataURL(event.target.files[0])};
+
+
+    //Suchfunktion in Navbar , sucht nacht alle event title und description in der datenbank.
+    $(document).ready(function() {
+      var currentRequest = null; // Variable für aktuelle Anfrage
+      var debounceTimeout = null; // Variable für debounce timeout
+  
+      $('#search-input').on('input keyup', function() {
+          var query = $(this).val().trim();
+  
+          // Alle vorherigen Anfragen abbrechen
+          if (currentRequest) {
+              currentRequest.abort();
+              currentRequest = null;
+          }
+  
+          // Bestehendes debounce Timeout löschen
+          if (debounceTimeout) {
+              clearTimeout(debounceTimeout);
+          }
+  
+          debounceTimeout = setTimeout(function() {
+              if (query !== '') {
+                  currentRequest = $.ajax({
+                      url: "/search",
+                      type: "GET",
+                      data: { 'query': query },
+                      success: function(data) {
+                          $('#search-results').html('');
+  
+                          if (data.length === 0) {
+                              $('#search-results').hide();
+                              return;
+                          }
+  
+                          $.each(data, function(key, value) {
+                              var card = `
+                                  <div class="card mt-2">
+                                      <div class="card-body d-flex">
+                                          <div>
+                                              <h5 class="card-title">${value.title}</h5>
+                                              <p class="card-text">${value.description.substring(0, 100)}...</p>
+                                              <a href="/events/${value.id}" class="btn btn-primary">View Event</a>
+                                          </div>
+                                      </div>
+                                  </div>`;
+  
+                              $('#search-results').append(card);
+                          });
+  
+                          $('#search-results').show();
+                      },
+                      complete: function() {
+                          currentRequest = null; // Setze die aktuelle Anfrage zurück, wenn sie abgeschlossen ist
+                      }
+                  });
+              } else {
+                  $('#search-results').html('');
+                  $('#search-results').hide();
+              }
+          }, 500); // Debounce-Zeit auf 500 Millisekunden einstellen
+      });
+  
+      // Verhindern Sie das Drücken der Eingabetaste
+      $('#search-input').on('keypress', function(e) {
+          if (e.which == 13) {
+              e.preventDefault();
+          }
+      });
+  });
+  
