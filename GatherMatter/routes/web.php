@@ -89,7 +89,7 @@ Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index'
 Route::post('/tickets/store/{event}', [TicketController::class, 'store'])->name('tickets.store');
 
 
-use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

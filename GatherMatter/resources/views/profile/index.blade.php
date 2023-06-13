@@ -52,9 +52,10 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Profil image</label>
-                            <input type="file" class="form-control" name="profile_image">
-                        </div> 
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address" value="{{ $user->address }}">
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Save profile changes</button>
                         <hr>
                        <br>
