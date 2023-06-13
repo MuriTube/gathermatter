@@ -66,6 +66,9 @@
                 </div>
                     <a href="{{ route('cart.index') }}" class="btn btn-sm btn-primary" style="height: 30px; margin-right: 20px;">
                         <i class="fas fa-shopping-cart"></i>
+                        @if(auth()->user() && $cartItemsCount > 0)
+                            <span class="badge badge-light">{{ $cartItemsCount }}</span>
+                        @endif
                     </a>
                     <div class="d-flex btn-group-responsive">
                         @guest
