@@ -22,7 +22,7 @@
                             @foreach($cartItems as $item)
                                 <div class="card mb-3">
                                     <div class="card-body">
-                                        @if($item->tickets && $item->tickets->event)
+                                        @if($item->tickets && $item->ticket->event)
                                             <p>Event: {{ $item->tickets->event->title }}</p>
                                             <p>Ticket: {{ $item->tickets->tier }}</p>
                                             <p>Quantity: {{ $item->quantity }}</p>
@@ -58,4 +58,3 @@
     </div>
 </div>
 @endsection
-

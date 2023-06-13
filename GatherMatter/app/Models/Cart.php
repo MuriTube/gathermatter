@@ -22,8 +22,9 @@ class Cart extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function tickets()
+    public function ticket()
     {
-        return $this->belongsToMany(Ticket::class)->withPivot('quantity');
+    	return $this->belongsTo(Ticket::class, 'ticketID');
     }
+
 }
