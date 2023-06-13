@@ -76,7 +76,7 @@ Route::group(['middleware' => ['auth', 'adminOrOrganizer']], function () {
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::post('/events', [EventController::class, 'store'])->name('events.store');
 Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
-
+Route::get('/search', [EventController::class, 'search']);
 use App\Http\Controllers\TicketController;
 
 Route::group(['middleware' => ['auth', 'adminOrOrganizer']], function () {
@@ -111,6 +111,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/cart/delete/{cartItem}', [CartController::class, 'delete'])->name('cart.delete');
     Route::get('/payment/initiate', [PaymentController::class, 'initiate'])->name('payment.initiate');
 });
+
+
 
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
