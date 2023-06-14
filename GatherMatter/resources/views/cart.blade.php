@@ -15,8 +15,27 @@
                                             <h6 class="mb-0 text-muted">{{ count($cartItems) }} items</h6>
                                         </div>
                                         <hr class="my-4">
+                                        <!-- Cart Headers -->
+                                        <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                                <h6 class="text-black mb-0">Items</h6>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                                <h6 class="text-black mb-0"></h6>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-2">
+                                                <h6 class="text-black mb-0">Price each</h6>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-2">
+                                                <h6 class="text-black mb-0">Quantity</h6>
+                                            </div>
+                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                <h6 class="text-black mb-0">Subtotal</h6>
+                                            </div>
+                                        </div>
+                                        <hr class="my-4">
                                         @foreach($cartItems as $item)
-                                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                            <div class="row mb-4 d-flex align-items-center">
                                                 <div class="col-md-2 col-lg-2 col-xl-2">
                                                     @if($item->ticket->event->image_path)
                                                         <img src="{{ asset('storage/' . $item->ticket->event->image_path) }}" class="img-fluid rounded-3" alt="Event Image">
@@ -26,21 +45,23 @@
                                                     <h6 class="text-black mb-0">{{ $item->ticket->event->title }}</h6>
                                                     <h6 class="text-muted">{{ $item->ticket->tier }}</h6>
                                                 </div>
-                                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                                    <h6 class="text-black mb-0"> € {{ $item->ticket->price }}</h6> <!-- Individual Ticket Price -->
+                                                </div>
+                                                <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
                                                     <form action="{{ route('cart.update', $item) }}" method="POST" class="d-inline">
-                                                        @csrf
-                                                        @method('PUT')
+                                                        @csrf                                                        @method('PUT')
                                                         <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="10" class="form-control form-control-sm" onchange="this.form.submit()">
                                                     </form>
                                                 </div>
-                                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                <div class="col-md-2 col-lg-2 col-xl-2">
                                                     <h6 class="mb-0">€ {{ $item->ticket->price * $item->quantity }}</h6>
                                                 </div>
                                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                     <form action="{{ route('cart.delete', $item) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-link text-muted"><i class="fas fa-times"></i></button>
+                                                        <button type="submit" class="btn btn-link text-muted"><i class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </div>
