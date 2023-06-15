@@ -23,7 +23,13 @@
                             @endif
                             <hr class="my-4">
                             <p class="card-text">{{ $event->description }}</p>
-                            <p class="card-text">{{ date('jS F Y H:i', strtotime($event->date)) }}</p>
+                            <p class="card-text"><i class="fas fa-calendar-alt"></i> {{ date('jS F Y H:i', strtotime($event->date)) }}</p>
+                            @if(!empty($event->location))
+                                    <p class="card-text"><i class="fas fa-map-marker-alt"></i> Location: {{ $event->location }}</p>
+                                    @endif
+                                    @if(!empty($event->maxParticipants))
+                                        <p class="card-text"><i class="fas fa-users"></i> Max Participants: {{ $event->maxParticipants }}</p>
+                                    @endif
                             @if(Auth::user() && (Auth::user()->role === 'admin' || (Auth::user()->role === 'organizer' && $event->organizerID === Auth::user()->id)))
                                 <a href="{{ route('tickets.create', $event->id) }}" class="btn btn-primary mt-3">Create Ticket</a>
                             @endif

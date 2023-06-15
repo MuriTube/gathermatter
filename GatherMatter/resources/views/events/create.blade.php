@@ -18,6 +18,14 @@
                 <input type="datetime-local" name="date" class="form-control">
             </div>
             <div class="mb-3">
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" name="location" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="maxParticipants" class="form-label">Max Participants:</label>
+                <input type="number" name="maxParticipants" class="form-control">
+            </div>
+            <div class="mb-3">
                 <label for="image" class="form-label">Event-Bild:</label>
                 <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
                 <img id="preview" src="#" alt="Event Image Preview" style="width: 150px; display: none;">

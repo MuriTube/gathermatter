@@ -34,20 +34,21 @@ class EventController extends Controller
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->date = $request->input('date');
+        $event->location = $request->input('location');
+        $event->maxParticipants = $request->input('maxParticipants');
         $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
-
+    
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/events');
-
+    
             $event->image_path = str_replace('public/', '', $imagePath);
-
         }
-
-
+    
         $event->save();
-
+    
         return redirect()->route('events.index')->with('success', 'Event created successfully');
     }
+    
 
     public function show(Event $event)
     {
@@ -66,8 +67,10 @@ class EventController extends Controller
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->date = $request->input('date');
+        $event->location = $request->input('location');
+        $event->maxParticipants = $request->input('maxParticipants');
         $event->organizerID = Auth::user()->id;
-
+    
         if ($request->hasFile('image')) {
             $oldImagePath = $event->image_path;
             $imagePath = $request->file('image')->store('images/events', 'public');
@@ -76,11 +79,12 @@ class EventController extends Controller
             }
             $event->image_path = $imagePath;
         }
-
+    
         $event->save();
-
+    
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
     }
+    
 
     public function destroy(Event $event)
     {

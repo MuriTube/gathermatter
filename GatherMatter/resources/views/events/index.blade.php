@@ -73,7 +73,13 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                     <h5 class="card-subtitle mb-2 text-muted">Organized by: {{ $event->organizer->name }}</h5>
-                                    <b><p class="card-text">{{ date('jS F Y H:i', strtotime($event->date)) }}</p></b>
+                                    <p class="card-text"><i class="fas fa-calendar-alt"></i> {{ date('jS F Y H:i', strtotime($event->date)) }}</p>
+                                    @if(!empty($event->location))
+                                    <p class="card-text"><i class="fas fa-map-marker-alt"></i> Location: {{ $event->location }}</p>
+                                    @endif
+                                    @if(!empty($event->maxParticipants))
+                                        <p class="card-text"><i class="fas fa-users"></i> Max Participants: {{ $event->maxParticipants }}</p>
+                                    @endif
                                 </div>
                                 <div class="card-footer d-flex flex-column flex-md-row justify-content-between align-items-center bg-white">
                                     <a href="{{ route('events.show', $event) }}" class="btn btn-primary mb-2 mb-md-0">View Details</a>

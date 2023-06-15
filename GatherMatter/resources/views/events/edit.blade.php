@@ -19,9 +19,17 @@
                 <input type="datetime-local" name="date" class="form-control" value="{{ $event->date }}">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Aktuelles Event-Bild:</label><br>
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" name="location" class="form-control" value="{{ $event->location }}">
+            </div>
+            <div class="mb-3">
+                <label for="maxParticipants" class="form-label">Max Participants:</label>
+                <input type="number" name="maxParticipants" class="form-control" value="{{ $event->maxParticipants }}">
+            </div>
+            <div class="mb-3"> 
+                <label for="image" class="form-label">Current Event-Image:</label><br>
                 <img src="{{ asset('storage/' . $event->image_path) }}" alt="Event Image" width="200"><br>
-                <label for="image">Neue Event-Bild:</label>
+                <label for="image">New Event-Image:</label>
                 <input type="file" class="form-control" id="image" name="image">
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
