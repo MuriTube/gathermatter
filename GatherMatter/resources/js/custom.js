@@ -102,3 +102,42 @@ window.addEventListener('DOMContentLoaded', function() {
       });
   });
   
+ // Funktion zum Umschalten der Passwort-Sichtbarkeit
+$('.toggle-password').on('click', function() {
+    $(this).toggleClass('fa-eye fa-eye-slash');
+    let input = $($(this).attr('toggle'));
+    if (input.attr('type') == 'password') {
+        input.attr('type', 'text');
+    } else {
+        input.attr('type', 'password');
+    }
+});
+
+// Funktion zur Überprüfung der Passwortstärke
+document.getElementById('password').addEventListener('input', function (e) {
+    const password = e.target.value;
+    let strength = 0;
+    if (password.length >= 8) {
+        if (password.match(/[a-z]/)) strength += 25;
+        if (password.match(/[A-Z]/)) strength += 25;
+        if (password.match(/[0-9]/)) strength += 25;
+        if (password.match(/[.@$!%*#?&]/)) strength += 25;
+    }
+
+    const passwordStrength = document.getElementById('passwordStrength');
+    if (password.length === 0) {
+        passwordStrength.style.width = '0';
+    } else {
+        passwordStrength.style.width = Math.max(strength, 10) + '%';
+    }
+
+    // Setzt die Farbe basierend auf der Stärke
+    if (strength < 75) {
+        passwordStrength.style.backgroundColor = '#f00';
+    } else if (strength < 100 || !password.match(/[.@$!%*#?&]/)) {
+        passwordStrength.style.backgroundColor = '#ff0';
+        passwordStrength.style.width = '75%';
+    } else {
+        passwordStrength.style.backgroundColor = '#0f0';
+    }
+});

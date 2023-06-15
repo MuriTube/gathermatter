@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Validator;
 class ProfileController extends Controller
 {
     /**
@@ -50,21 +50,35 @@ class ProfileController extends Controller
     }
 
     public function updatePassword(Request $request)
-    {
-        $request->validate([
-            'old_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'old_password' => 'required',
+        'new_password' => [
+            'required',
+            'min:8',
+            'confirmed',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*#?&]).+$/',
+        ],
+    ], [
+        'new_password.regex' => 'The password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
+    ]);
 
-        $user = Auth::user();
-
-        if (!Hash::check($request->old_password, $user->password)) {
-            return redirect()->route('profile.index')->with('error', 'Das alte Passwort ist nicht korrekt.');
-        }
-
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        return redirect()->route('profile.index')->with('status', 'Passwort wurde erfolgreich aktualisiert.');
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator);
     }
+
+    $user = Auth::user();
+
+    if (!Hash::check($request->old_password, $user->password)) {
+        $validator->errors()->add('old_password', 'The old password is incorrect!');
+        return redirect()->back()->withErrors($validator);
+    }
+
+    $user->password = Hash::make($request->new_password);
+    $user->save();
+
+    return redirect()->route('profile.index')->with('status', 'Password successfully updated');
+}
+
+
 }

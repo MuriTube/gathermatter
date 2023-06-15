@@ -49,13 +49,22 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255', Rule::unique('users')],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+{
+    return Validator::make($data, [
+        'name' => ['required', 'string', 'max:255', Rule::unique('users')],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => [
+            'required',
+            'string',
+            'min:8', // mindestens 8 Zeichen
+            'confirmed',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*#?&]).+$/',
+        ],
+    ], [
+        'password.regex' => 'The password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
+    ]);
+}
+    
 
     /**
      * Create a new user instance after a valid registration.
