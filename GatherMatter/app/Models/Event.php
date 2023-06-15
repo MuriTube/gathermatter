@@ -17,6 +17,8 @@ class Event extends Model
         'title',
         'description',
         'date',
+        'location',
+        'maxParticipants',
         'organizerID',
         'image_path', // Hinzufügen des 'image_path' Feldes zu den fillable-Feldern
         // Hier Tabellen programmieren: maxParticipants, location
