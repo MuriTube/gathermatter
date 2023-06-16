@@ -113,6 +113,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
+use App\Http\Controllers\HomeController;
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
