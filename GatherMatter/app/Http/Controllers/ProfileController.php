@@ -46,7 +46,7 @@ class ProfileController extends Controller
         $user->fill($request->all());
         $user->save();
 
-        return redirect()->route('profile.index')->with('status', 'Profil wurde erfolgreich aktualisiert!');
+        return redirect()->route('profile.index')->with('status', 'Profile updated successfully');
     }
 
     public function updatePassword(Request $request)
@@ -60,7 +60,7 @@ class ProfileController extends Controller
             'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*#?&]).+$/',
         ],
     ], [
-        'new_password.regex' => 'The password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
+        'new_password.regex' => 'The password must contain at least 8 characters, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
     ]);
 
     if ($validator->fails()) {
