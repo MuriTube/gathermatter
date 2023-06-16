@@ -30,7 +30,6 @@
                            <div class="progress-bar-fill" id="passwordStrength"></div>
                         </div>
                         <!-- Info-Blase für Passwortrichtlinien hinzugefügt -->
-                        <div class="tooltip password-tooltip">Passwortrichtlinien: Mindestens 8 Zeichen, mindestens eine Ziffer, mindestens ein Groß- und ein Kleinbuchstabe.</div>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
