@@ -207,3 +207,18 @@ body {
       transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
   }
   
+  .password-info {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.position-relative:hover .password-info {
+    display: block;
+}
+

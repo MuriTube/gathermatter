@@ -40,11 +40,14 @@
                      <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
                      <div class="col-md-6 position-relative">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                        <!-- Auge-Icon hinzugefügt, um das Passwort anzuzeigen/zu verbergen -->
                         <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="margin-right: 5px;"></span>
                         <!-- Passwortstärke-Balken hinzugefügt -->
                         <div class="progress-bar mt-1">
                            <div class="progress-bar-fill" id="passwordStrength"></div>
+                        </div>
+                        <!-- Info-Blase für Passwortrichtlinien hinzugefügt -->
+                        <div class="password-info">
+                           The password must contain at least 8 characters, one uppercase letter, one digit, and one special character [.@$!%*#?&]
                         </div>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
