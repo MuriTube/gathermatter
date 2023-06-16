@@ -33,13 +33,14 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:users,name,' . Auth::id(),
             'firstname' => 'required|max:255',
             'surname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
             'telefon' => 'nullable|max:255',
             'zip' => 'required|max:10',
             'city' => 'required|max:255',
+            'address' => 'required|max:255',
         ]);
 
         $user = Auth::user();
