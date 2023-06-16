@@ -30,6 +30,14 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'date' => 'required|date|after:now',
+            'location' => 'max:255',
+            'maxParticipants' => 'integer',
+        ]);
+
         $event = new Event();
         $event->title = $request->input('title');
         $event->description = $request->input('description');
@@ -64,6 +72,14 @@ class EventController extends Controller
 
     public function update(Request $request, Event $event)
     {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'date' => 'required|date|after:now',
+            'location' => 'max:255',
+            'maxParticipants' => 'integer',
+        ]);
+
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->date = $request->input('date');
