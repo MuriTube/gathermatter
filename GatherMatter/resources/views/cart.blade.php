@@ -81,10 +81,7 @@
                                             <h5 class="text-uppercase">items {{ count($cartItems) }}</h5>
                                             <h5>€ {{ $totalPrice }}</h5>
                                         </div>
-
-                                        <button type="button" class="btn btn-dark btn-block btn-lg"
-                                                data-mdb-ripple-color="dark">Checkout</button>
-
+                                        <a href="{{ route('paypal.checkout') }}" class="btn btn-dark btn-block btn-lg">Checkout</a>
                                     </div>
                                 </div>
                             </div>

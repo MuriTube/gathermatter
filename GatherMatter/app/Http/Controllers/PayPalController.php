@@ -13,11 +13,32 @@ class PayPalController extends Controller
     {
         return view('transaction');
     }
-    /**
-     * process transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function handlePayment()
+    {
+        $provider = new ExpressCheckout;
+
+        $data = [];
+        $data['items'] = [];
+        foreach (Cart::content() as $key => $cartItem) {
+            $itemDetail = [
+                'name' => $cartItem->name,
+                'price' => $cartItem->price,
+                'qty' => $cartItem->qty
+            ];
+            $data['items'][] = $itemDetail;
+        }
+        $data['invoice_id'] = uniqid();
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = url('/paypal-success');
+        $total = 0;
+        foreach($data['items'] as $item) {
+            $total += $item['price']*$item['qty'];
+        }
+        $data['total'] = $total;
+        $response = $provider->setExpressCheckout($data);
+        return redirect($response['paypal_link']);
+    }
+
     public function processTransaction(Request $request)
     {
         $provider = new PayPalClient;
