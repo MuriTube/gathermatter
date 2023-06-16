@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     /**
@@ -21,8 +23,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+ 
+     public function index()
+     {
+         $upcomingEvents = Event::where('date', '>=', now())
+             ->orderBy('date', 'asc')
+             ->take(3)
+             ->get();
+     
+         return view('index', compact('upcomingEvents'));
+     }
+     
 }
