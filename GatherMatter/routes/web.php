@@ -122,7 +122,7 @@ Route::get('create-transaction', [PayPalController::class, 'createTransaction'])
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
-Route::get('paypal/checkout', 'PayPalController@handlePayment')->name('paypal.checkout');
+Route::get('paypal/checkout', [App\Http\Controllers\PayPalController::class, 'handlePayment'])->name('paypal.checkout');
 
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');

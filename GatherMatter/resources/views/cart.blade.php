@@ -81,7 +81,28 @@
                                             <h5 class="text-uppercase">items {{ count($cartItems) }}</h5>
                                             <h5>€ {{ $totalPrice }}</h5>
                                         </div>
-                                        <a href="{{ route('paypal.checkout') }}" class="btn btn-dark btn-block btn-lg">Checkout</a>
+                                        <!-- <a href="{{ route('paypal.checkout') }}" class="btn btn-dark btn-block btn-lg">Checkout</a> -->
+                                        <div class="container d-flex justify-content-center align-items-center">
+                                            <div class="row" style="padding: 18px;" id="paypalbtn">
+                                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                                    <input type="hidden" name="cmd" value="_xclick">
+                                                    <input type="hidden" name="business" value="paypal@muri.io">
+                                                    <input type="hidden" name="currency_code" value="EUR">
+                                                    <input type="hidden" name="amount" value="{{ $totalPrice }}">
+                                                    <input type="hidden" name="first_name" id="first_name" value="{{ Auth::user()->firstname }}">
+                                                    <input type="hidden" name="last_name" id="last_name" value="{{ Auth::user()->surname }}">
+                                                    <input type="hidden" name="address1" value="{{ Auth::user()->address }}">
+                                                    <input type="hidden" name="address2" value="">
+                                                    <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                                    <input type="hidden" name="country" value="Saudi Arabia">
+                                                    <input type="hidden" name="return" value="{{ url('paypal/success') }}">
+                                                    <input type="hidden" name="cancel_return" value="{{ url('paypal/cancel') }}">
+                                                    <input type="hidden" name="item_name" value="GatherMatter">
+                                                    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_paynow_107x26.png" alt="Pay Now" style="cursor: pointer;">
+                                                    <img alt="" src="https://paypalobjects.com/en_US/i/src/pixel.gif" width="1" height="1" style="cursor: pointer;">
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
