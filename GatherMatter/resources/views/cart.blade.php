@@ -86,7 +86,7 @@
                                             <div class="row" style="padding: 18px;" id="paypalbtn">
                                                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                                                     <input type="hidden" name="cmd" value="_xclick">
-                                                    <input type="hidden" name="business" value="sb-dpw9a26241586@business.example.com">
+                                                    <input type="hidden" name="business" value="hi@muri.io">
                                                     <input type="hidden" name="currency_code" value="EUR">
                                                     <input type="hidden" name="amount" value="{{ $totalPrice }}">
                                                     <input type="hidden" name="first_name" id="first_name" value="{{ Auth::user()->firstname }}">
