@@ -40,11 +40,12 @@ class PayPalController extends Controller
         $data['total'] = $total;
         $response = $provider->setExpressCheckout($data);
 
-        // Include the token in the return URL
-        $data['return_url'] = url('/paypal-success?token=' . $response['TOKEN']);
+        // Store the token in the session
+        session(['token' => $response['TOKEN']]);
 
         return redirect($response['paypal_link']);
     }
+
 
 
     /**
@@ -101,10 +102,11 @@ class PayPalController extends Controller
      */
     public function successTransaction(Request $request)
     {
+        $token = session('token');
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
-        $response = $provider->capturePaymentOrder($request['token']);
+        $response = $provider->capturePaymentOrder($token);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $transaction = new stdClass();
             $transaction->id = $response['id'];
