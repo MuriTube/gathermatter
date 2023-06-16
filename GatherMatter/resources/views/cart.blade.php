@@ -86,7 +86,7 @@
                                             <div class="row" style="padding: 18px;" id="paypalbtn">
                                                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                                                     <input type="hidden" name="cmd" value="_xclick">
-                                                    <input type="hidden" name="business" value="paypal@muri.io">
+                                                    <input type="hidden" name="business" value="sb-dpw9a26241586@business.example.com">
                                                     <input type="hidden" name="currency_code" value="EUR">
                                                     <input type="hidden" name="amount" value="{{ $totalPrice }}">
                                                     <input type="hidden" name="first_name" id="first_name" value="{{ Auth::user()->firstname }}">
@@ -94,7 +94,7 @@
                                                     <input type="hidden" name="address1" value="{{ Auth::user()->address }}">
                                                     <input type="hidden" name="address2" value="">
                                                     <input type="hidden" name="email" value="{{ Auth::user()->email }}">
-                                                    <input type="hidden" name="country" value="Saudi Arabia">
+                                                    <input type="hidden" name="country" value="Austria">
                                                     <input type="hidden" name="return" value="{{ url('paypal/success') }}">
                                                     <input type="hidden" name="cancel_return" value="{{ url('paypal/cancel') }}">
                                                     <input type="hidden" name="item_name" value="GatherMatter">
