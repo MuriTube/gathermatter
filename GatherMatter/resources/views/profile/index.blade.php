@@ -11,12 +11,21 @@
                   {{ session('status') }}
                </div>
                @endif
+               @if ($errors->any())
+               <div class="alert alert-danger">
+                  <ul>
+                        @foreach ($errors->all() as $error)
+                           <li>{{ $error }}</li>
+                        @endforeach
+                  </ul>
+               </div>
+            @endif
                <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
                   <div class="mb-3">
                      <label class="form-label">Username</label>
-                     <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                     <input type="text" class="form-control" name="name" value="{{ $user->name }}"required>
                   </div>
                   <div class="mb-3">
                      <label class="form-label">Firstname</label>
@@ -28,7 +37,7 @@
                   </div>
                   <div class="mb-3">
                      <label class="form-label">Email</label>
-                     <input type="email" class="form-control" name="email" value="{{ $user->email }}">
+                     <input type="email" class="form-control" name="email" value="{{ $user->email }}"required>
                   </div>
                   <div class="mb-3">
                      <label class="form-label">Telefon</label>
