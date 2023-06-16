@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Manrope';
-    src: url('/fonts/static/Mae-Regular.ttf') format('truetype');
+    src: url('/gr01/src/fonts/static/Manrope-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .bg-imagecostum {
-    background-image:url('/images/title-img-event.jpg');
+    background-image: url('../../public/images/title-img-event.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -76,7 +76,7 @@ body {
        
     .section-background-first {
         height: 100%;
-        background-image: url('/images/cool-background.svg');
+        background-image: url('../../public/images/cool-background.svg');
         background-size: cover;
         background-attachment: fixed;
   
@@ -84,7 +84,7 @@ body {
     
     .section-background-second {
         height: 100%;
-        background-image: url('/images/cool-background-reserve.svg');
+        background-image: url('../../public/images/cool-background-reserve.svg');
         background-size: cover;
         background-attachment: fixed;
     }

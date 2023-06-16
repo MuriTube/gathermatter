@@ -10,19 +10,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Local CSS files -->
-    <!-- @vite('resources/css/custom.css')
-    @vite('resources/css/bootstrap.min.css') -->
-
-    <link href="{{ mix('css/custom.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/bootstrap.min.css') }}" rel="stylesheet">
+    @vite('resources/css/custom.css')
+    @vite('resources/css/bootstrap.min.css')
 
     <!-- Local Fonts (EB) -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ mix('js/custom.js') }}"></script>
-    
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <style>
         @media (max-width: 992px) { /* Anpassung je nach Bedarf */
             .btn-group {
@@ -126,6 +122,7 @@
             </footer>
         </div>
     </div>
+    @vite('resources/js/custom.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div id="cookie-banner" class="cookie-banner">
         <div class="container">
