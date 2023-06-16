@@ -39,8 +39,13 @@ class PayPalController extends Controller
         }
         $data['total'] = $total;
         $response = $provider->setExpressCheckout($data);
+
+        // Include the token in the return URL
+        $data['return_url'] = url('/paypal-success?token=' . $response['TOKEN']);
+
         return redirect($response['paypal_link']);
     }
+
 
     /**
      * process transaction.
