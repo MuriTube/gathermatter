@@ -58,7 +58,7 @@
                      <div class="position-relative">
                         <input id="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" name="old_password" required autocomplete="current-password">
                         <!-- Auge-Icon hinzugefügt, um das Passwort anzuzeigen/zu verbergen -->
-                        <span toggle="#old_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        <span toggle="#old_password" class="fa fa-fw fa-eye field-icon toggle-password" style="margin-right:5px;"></span>
                         @error('old_password')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
