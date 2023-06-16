@@ -118,7 +118,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 use App\Http\Controllers\PayPalController;
-Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('/cart', [PayPalController::class, 'createTransaction'])->name('cart.index');
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
 Route::get('paypal/success', [PayPalController::class, 'successTransaction'])->name('paypal.success');
 Route::get('paypal/cancel', [PayPalController::class, 'cancelTransaction'])->name('paypal.cancel');
