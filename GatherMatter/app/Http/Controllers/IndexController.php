@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -23,6 +24,11 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $upcomingEvents = Event::where('date', '>=', now())
+        ->orderBy('date', 'asc')
+        ->take(3)
+        ->get();
+
+    return view('index', compact('upcomingEvents'));
     }
 }
