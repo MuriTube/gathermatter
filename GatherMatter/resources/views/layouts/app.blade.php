@@ -9,16 +9,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Local CSS files 
+    <!-- Local CSS files -->
     @vite('resources/css/custom.css')
-    @vite('resources/css/bootstrap.min.css')-->
-    <link href="{{ secure_asset('css/custom.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
-
+    @vite('resources/css/bootstrap.min.css')
 
     <!-- Local Fonts (EB) -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -39,7 +35,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style=" box-shadow: 0 4.5px 2px -2px rgba(0, 0, 0, 0.1);">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    <img src="{{ secure_asset('images/logo-black.png') }}" alt="logo" width="60px" height="60px">
+                    <img src="{{ asset('images/logo-black.png') }}" alt="logo" width="60px" height="60px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -126,7 +122,7 @@
             </footer>
         </div>
     </div>
-    <script src="{{ secure_asset('js/custom.js') }}"></script>
+    @vite('resources/js/custom.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div id="cookie-banner" class="cookie-banner">
         <div class="container">
