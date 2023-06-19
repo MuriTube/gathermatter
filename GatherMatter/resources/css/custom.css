@@ -62,35 +62,35 @@
         justify-content: center;
         align-items: center;
     }
-       
+
     .section-background-first {
         height: 100%;
         background-image: url('../../public/images/cool-background.svg');
         background-size: cover;
         background-attachment: fixed;
-  
+
     }
-    
+
     .section-background-second {
         height: 100%;
         background-image: url('../../public/images/cool-background-reserve.svg');
         background-size: cover;
         background-attachment: fixed;
     }
-    
+
     .padded-image {
         display: flex;
         justify-content: center;
         padding: 25px;
     }
-    
+
     .team-img {
         width: 70%;
         border-radius: 5px;
     }
 
-    
-    @media (max-width: 992px) { 
+
+    @media (max-width: 992px) {
         .btn-group-responsive {
             margin-top: 10px;
         }
@@ -110,8 +110,8 @@
         opacity: 1;
         transition: opacity 0.5s ease-out; /* Füge eine Übergangsanimation hinzu */
       }
-      
-      
+
+
       .loader {
         width: 50px;
         height: 50px;
@@ -120,7 +120,7 @@
         border-radius: 50%;
         animation: spin 1s infinite ease-in-out;
       }
-      
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -129,12 +129,12 @@
           transform: rotate(360deg);
         }
       }
-      
+
       /* Verstecke den Preloader, wenn die Inhalte geladen sind */
       body.loaded .preloader {
         display: none;
       }
-      
+
       .preloader.hidden {
         opacity: 0;
       }
@@ -152,7 +152,7 @@
         align-items: center;
         justify-content: center;
       }
-    
+
       .cookie-message {
         background-color: #fff;
         padding: 20px;
@@ -161,7 +161,7 @@
         max-width: 500px;
         margin: 0 auto;
       }
-    
+
       .accept-button {
         display: block;
         margin: 0 auto;
@@ -171,7 +171,7 @@
         max-height: 400px;
         overflow-y: auto;
     }
-    
+
     .field-icon {
       float: right;
       margin-left: -25px;
@@ -187,7 +187,7 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       margin-top: 2px;
   }
-  
+
   .progress-bar-fill {
       height: 100%;
       background-color: #f00;
@@ -195,7 +195,7 @@
       border-radius: 5px;
       transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
   }
-  
+
   .password-info {
     display: none;
     position: absolute;
@@ -211,3 +211,37 @@
     display: block;
 }
 
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.bg-grey {
+    background-color: #eae8e8;
+}
+
+@media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+}
