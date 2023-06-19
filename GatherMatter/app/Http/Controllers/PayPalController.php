@@ -102,11 +102,12 @@ class PayPalController extends Controller
      */
     public function successTransaction(Request $request)
     {
+        $orderID = $request->get('PayerID');
         $token = session('token');
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
-        $response = $provider->capturePaymentOrder($token);
+        $payment = $provider->capturePaymentOrder($orderID);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $transaction = new stdClass();
             $transaction->id = $response['id'];
