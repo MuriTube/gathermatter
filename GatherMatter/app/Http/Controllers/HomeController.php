@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       
+        $this->middleware('auth');
     }
 
     /**
@@ -26,12 +26,7 @@ class HomeController extends Controller
  
      public function index()
      {
-         $upcomingEvents = Event::where('date', '>=', now())
-             ->orderBy('date', 'asc')
-             ->take(3)
-             ->get();
-     
-         return view('index', compact('upcomingEvents'));
-     }
+         return view('home');
+        }
      
 }

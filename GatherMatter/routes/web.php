@@ -50,8 +50,8 @@ Route::get('/terms', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+use App\Http\Controllers\HomeController;
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
 // Hier Seiten routes anpassen
 
 use App\Http\Controllers\AdminController;
@@ -113,14 +113,21 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-use App\Http\Controllers\HomeController;
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
 
 use App\Http\Controllers\PayPalController;
 Route::get('paypal/success', [PayPalController::class, 'successTransaction'])->name('paypal.success');
 Route::get('paypal/cancel', [PayPalController::class, 'cancelTransaction'])->name('paypal.cancel');
 Route::get('paypal/checkout', [App\Http\Controllers\PayPalController::class, 'handlePayment'])->name('paypal.checkout');
+
+
+
+use App\Http\Controllers\Auth\VerificationController;
+
+Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+
 
 // Nicht in Verwendung
 // Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
