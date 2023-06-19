@@ -1,14 +1,14 @@
 @component('mail::message')
-# Email Verification
+    # Email Verification
 
-Thank you for registering. Please click on the button below to verify your email address.
+    Thank you for registering. Please click on the button below to verify your email address.
 
-@component('mail::button', ['url' => $url])
-Verify your email
-@endcomponent
+    @component('mail::button', ['url' => $url])
+        Verify your email
+    @endcomponent
 
-If you did not register on our website, please ignore this email.
+    If you did not register on our website, please ignore this email.
 
-Best regards,<br>
-{{ config('app.name') }}
+    Best regards,<br>
+    {{ config('app.name') }}
 @endcomponent

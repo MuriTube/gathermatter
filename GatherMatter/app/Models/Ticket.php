@@ -4,9 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Event;
-use App\Models\Booking;
-use App\Models\Cart;
 
 class Ticket extends Model
 {
@@ -28,7 +25,7 @@ class Ticket extends Model
 
     public function carts()
     {
-    	return $this->hasMany(Cart::class, 'ticketID');
+        return $this->hasMany(Cart::class, 'ticketID');
     }
 
 }

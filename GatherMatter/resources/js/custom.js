@@ -1,14 +1,14 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     var preloader = document.getElementById('preloader');
     if (preloader) {
-        setTimeout(function(){
+        setTimeout(function () {
             preloader.style.display = 'none';
         }, 1000); // set delay to 1000 milliseconds (1 second)
     }
 
 });
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     var preloader = document.querySelector('.preloader');
     if (preloader) {
         // Funktion zum Ausblenden des Preloaders
@@ -18,59 +18,62 @@ window.addEventListener('DOMContentLoaded', function() {
                 preloader.style.display = 'none';
             }, 300); // Warte 500ms, bevor du den Preloader vollständig ausblenden
         }
-    }
-    // Zeige den Preloader für 0.4 Sekunden an
-    setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
-  });
 
-  function previewImage(event) {
+        // Zeige den Preloader für 0.4 Sekunden an
+        setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
+        setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)ﬂ
+    }
+});
+
+function previewImage(event) {
     var reader = new FileReader();
     var imageField = document.getElementById("preview");
 
-    reader.onload = function() {
+    reader.onload = function () {
         if (reader.readyState == 2) {
             imageField.src = reader.result;
             imageField.style.display = "block";
         }
     }
-    reader.readAsDataURL(event.target.files[0])};
+    reader.readAsDataURL(event.target.files[0])
+}
 
 
-    //Suchfunktion in Navbar , sucht nacht alle event title und description in der datenbank.
-    $(document).ready(function() {
-      var currentRequest = null; // Variable für aktuelle Anfrage
-      var debounceTimeout = null; // Variable für debounce timeout
+//Suchfunktion in Navbar , sucht nacht alle event title und description in der datenbank.
+$(document).ready(function () {
+    var currentRequest = null; // Variable für aktuelle Anfrage
+    var debounceTimeout = null; // Variable für debounce timeout
 
-      $('#search-input').on('input keyup', function() {
-          var query = $(this).val().trim();
+    $('#search-input').on('input keyup', function () {
+        var query = $(this).val().trim();
 
-          // Alle vorherigen Anfragen abbrechen
-          if (currentRequest) {
-              currentRequest.abort();
-              currentRequest = null;
-          }
+        // Alle vorherigen Anfragen abbrechen
+        if (currentRequest) {
+            currentRequest.abort();
+            currentRequest = null;
+        }
 
-          // Bestehendes debounce Timeout löschen
-          if (debounceTimeout) {
-              clearTimeout(debounceTimeout);
-          }
+        // Bestehendes debounce Timeout löschen
+        if (debounceTimeout) {
+            clearTimeout(debounceTimeout);
+        }
 
-          debounceTimeout = setTimeout(function() {
-              if (query !== '') {
-                  currentRequest = $.ajax({
-                      url: "/search",
-                      type: "GET",
-                      data: { 'query': query },
-                      success: function(data) {
-                          $('#search-results').html('');
+        debounceTimeout = setTimeout(function () {
+            if (query !== '') {
+                currentRequest = $.ajax({
+                    url: "/search",
+                    type: "GET",
+                    data: {'query': query},
+                    success: function (data) {
+                        $('#search-results').html('');
 
-                          if (data.length === 0) {
-                              $('#search-results').hide();
-                              return;
-                          }
+                        if (data.length === 0) {
+                            $('#search-results').hide();
+                            return;
+                        }
 
-                          $.each(data, function(key, value) {
-                              var card = `
+                        $.each(data, function (key, value) {
+                            var card = `
                                   <div class="card mt-2">
                                       <div class="card-body d-flex">
                                           <div>
@@ -81,32 +84,32 @@ window.addEventListener('DOMContentLoaded', function() {
                                       </div>
                                   </div>`;
 
-                              $('#search-results').append(card);
-                          });
+                            $('#search-results').append(card);
+                        });
 
-                          $('#search-results').show();
-                      },
-                      complete: function() {
-                          currentRequest = null; // Setze die aktuelle Anfrage zurück, wenn sie abgeschlossen ist
-                      }
-                  });
-              } else {
-                  $('#search-results').html('');
-                  $('#search-results').hide();
-              }
-          }, 500); // Debounce-Zeit auf 500 Millisekunden einstellen
-      });
+                        $('#search-results').show();
+                    },
+                    complete: function () {
+                        currentRequest = null; // Setze die aktuelle Anfrage zurück, wenn sie abgeschlossen ist
+                    }
+                });
+            } else {
+                $('#search-results').html('');
+                $('#search-results').hide();
+            }
+        }, 500); // Debounce-Zeit auf 500 Millisekunden einstellen
+    });
 
-      // Verhindern Sie das Drücken der Eingabetaste
-      $('#search-input').on('keypress', function(e) {
-          if (e.which == 13) {
-              e.preventDefault();
-          }
-      });
-  });
+    // Verhindern Sie das Drücken der Eingabetaste
+    $('#search-input').on('keypress', function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+        }
+    });
+});
 
- // Funktion zum Umschalten der Passwort-Sichtbarkeit
-$('.toggle-password').on('click', function() {
+// Funktion zum Umschalten der Passwort-Sichtbarkeit
+$('.toggle-password').on('click', function () {
     $(this).toggleClass('fa-eye fa-eye-slash');
     let input = $($(this).attr('toggle'));
     if (input.attr('type') == 'password') {
@@ -120,7 +123,7 @@ $('.toggle-password').on('click', function() {
 
 var element = document.getElementById('password');
 if (element) {
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function () {
         // Your code here
     });
 }

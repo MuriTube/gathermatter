@@ -22,7 +22,8 @@
                         <select name="role" class="form-control" id="role">
                             <option value="user" @if ($user->role == 'user') selected @endif>User</option>
                             <option value="admin" @if ($user->role == 'admin') selected @endif>Admin</option>
-                            <option value="organizer" @if ($user->role == 'organizer') selected @endif>Organisator</option>
+                            <option value="organizer" @if ($user->role == 'organizer') selected @endif>Organisator
+                            </option>
                         </select>
                     </div>
 
@@ -75,16 +76,17 @@
                     <button type="submit" class="btn btn-primary mt-2">Update user profile</button>
                 </form>
 
-                <form method="POST" action="{{ route('admin.destroy', $user) }}" onsubmit="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">
-                @csrf
-                @method('DELETE')
+                <form method="POST" action="{{ route('admin.destroy', $user) }}"
+                      onsubmit="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">
+                    @csrf
+                    @method('DELETE')
 
-                <div class="form-group row">
-                    <div class="col">
-                        <button type="submit" class="btn btn-danger mt-2">Delete User</button>
+                    <div class="form-group row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger mt-2">Delete User</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
                 <div class="mt-4">
                     <a href="{{ route('admin.index') }}" class="btn btn-secondary">Go Back</a>

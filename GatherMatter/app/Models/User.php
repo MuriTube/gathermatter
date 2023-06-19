@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Validation\Rules\Unique;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -30,7 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'role',// hinzugefügt 'role' zum fillable Array
         'address',
     ];
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *

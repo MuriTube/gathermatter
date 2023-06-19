@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Ticket;
 
 class Cart extends Model
 {
@@ -24,7 +22,7 @@ class Cart extends Model
 
     public function ticket()
     {
-    	return $this->belongsTo(Ticket::class, 'ticketID');
+        return $this->belongsTo(Ticket::class, 'ticketID');
     }
 
 }
