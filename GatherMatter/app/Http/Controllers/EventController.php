@@ -28,7 +28,6 @@ class EventController extends Controller
         return view('events.create');
     }
 
-<<<<<<< HEAD
     public function store(Request $request)
     {
         $request->validate([
@@ -59,8 +58,6 @@ class EventController extends Controller
     }
     
 
-=======
->>>>>>> ee40539ba851d7056d4b628f2ec59fd2de2f393d
     public function show(Event $event)
     {
         $event->load('organizer', 'tickets'); // Laden des Veranstalters
@@ -102,27 +99,6 @@ class EventController extends Controller
         $event->save();
 
         return redirect()->route('events.index')->with('success', 'Event updated successfully');
-    }
-
-    public function store(Request $request)
-    {
-        $event = new Event();
-        $event->title = $request->input('title');
-        $event->description = $request->input('description');
-        $event->date = $request->input('date');
-        $event->location = $request->input('location');
-        $event->maxParticipants = $request->input('maxParticipants');
-        $event->organizerID = Auth::user()->id; // Speichern der Organizer-ID
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/events');
-
-            $event->image_path = str_replace('public/', '', $imagePath);
-        }
-
-        $event->save();
-
-        return redirect()->route('events.index')->with('success', 'Event created successfully');
     }
 
     public function destroy(Event $event)
