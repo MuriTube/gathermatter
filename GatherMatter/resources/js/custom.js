@@ -10,17 +10,17 @@ window.addEventListener('load', function() {
 
 window.addEventListener('DOMContentLoaded', function() {
     var preloader = document.querySelector('.preloader');
-
-    // Funktion zum Ausblenden des Preloaders
-    function hidePreloader() {
-      preloader.classList.add('hidden');
-      setTimeout(function() {
-        preloader.style.display = 'none';
-      }, 500); // Warte 500ms, bevor du den Preloader vollständig ausblenden
+    if (preloader) {
+        // Funktion zum Ausblenden des Preloaders
+        function hidePreloader() {
+            preloader.classList.add('hidden');
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 300); // Warte 500ms, bevor du den Preloader vollständig ausblenden
+        }
     }
-
     // Zeige den Preloader für 0.4 Sekunden an
-    setTimeout(hidePreloader, 400); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
+    setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
   });
 
   function previewImage(event) {
