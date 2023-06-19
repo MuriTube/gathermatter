@@ -16,6 +16,9 @@
             <div class="mb-3">
                 <label for="date" class="form-label">Date:</label>
                 <input type="datetime-local" name="date" class="form-control">
+                @if ($errors->has('date'))
+                <span class="text-danger">{{ $errors->first('date') }}</span>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="location" class="form-label">Location:</label>
@@ -26,7 +29,7 @@
                 <input type="number" name="maxParticipants" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Event-Bild:</label>
+                <label for="image" class="form-label">Event-Image:</label>
                 <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
                 <img id="preview" src="#" alt="Event Image Preview" style="width: 150px; display: none;">
             </div>

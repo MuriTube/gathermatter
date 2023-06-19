@@ -28,6 +28,25 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 01.06.2023|3.2.1.2| 18:25 - 21:25 | 3h | Home | Implementierung Events | - | Laravel Dokus
 01.06.2023|3.2.1.2| 22:00 - 23:00 | 1h | Home | Rolemangement für Events angepasst | - | Laravel Dokus
 02.06.2023|3.2.1.2| 7:30 - 8:30 | 1h | LBS | Implementierung Editing für Admin | - | Laravel Dokus
+02.06.2023|3.2.1.2| 8:30 - 10:00 | 1h 30m | LBS | Anpassung Event & Ticket erstellung | - | Laravel Dokus und Diverse Video Tutorials
+02.06.2023|3.2.1.2| 17:30 - 19:30 | 3h | Home | Anpassung Event & Ticket erstellung | - | Laravel Dokus und Diverse Video Tutorials
+02.06.2023| - | 19:30 - 20:30 | 1h | Home | Cookie Implementierung | - | Diverse Webtutorials
+05.06.2023| 3.2.1.2 | 10:00 - 13:30 | 3h 30m | LBS | View und Logik anpassung in Events für Organizer| - | Diverse Webtutorial
+05.06.2023| 3.2.1.2 | 17:00 - 20:00 | 3h | Home | Add Image funktion | - | Diverse Laravel Dokus
+06.06.2023 | 3.2.1.1 | 7:30 - 10:00 | 2h 30m | LBS | Profil umsetzung für Users und Admins | - | Diverse Laravel Dokus
+07.06.2023 | 4.1 | 12:30 - 13:00 | 1h | Home | Tests implementierung | Failed aufgrund fehlender Factory | -
+09.06.2023 | 4.1 | 8:20 - 9:20 | 1h | LBS | User & Event automatisierter Featuretest | - | Diverses aus Laravel Dokus
+09.06.2023 | 3.2.1.3 | 9:20 - 12:20 | 3h | LBS | Email Password vergessen | - | Diverses aus Laravel Dokus
+12.06.2023 | 4.1 | 7:30 - 8:30 | 1h | LBS | Tests Anpassung | - | Diverses aus Laravel Dokus
+12.06.2023 | 3.2.1.3 | 8:30 - 11:30 | 3h | LBS | Email verifizierung | - | Diverse Larvel Dokus
+13.06.2023 | 3.1.2.1 |7:30 - 10:00 | 2h 30m | LBS | Suchfunktion implementiert | - | Javascript Dokus
+15.06.2023 | 3.2.1.1 | 9:25 - 12:50 | 2h | LBS | Umsetzung Passwortrichtlinien | - | -
+
+
+
+
+
+
 
 ## Murilo:
 
@@ -48,6 +67,5 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 30.05.2023|3.2.1.1| 7:30 - 10:00 | 2h 30m | LBS | Implementierung Laravel | - | Laravel Dokus
 31.05.2023| - | - | - | LBS | Abwesend | - | -
 01.06.2023| - | - | - | LBS | Abwesend | - | -
-01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - | 
-06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - | 
-
+01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - |
+06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - |

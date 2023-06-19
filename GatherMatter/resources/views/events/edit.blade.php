@@ -17,6 +17,9 @@
             <div class="mb-3">
                 <label for="date" class="form-label">Date:</label>
                 <input type="datetime-local" name="date" class="form-control" value="{{ $event->date }}">
+                @if ($errors->has('date'))
+                <span class="text-danger">{{ $errors->first('date') }}</span>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="location" class="form-label">Location:</label>
