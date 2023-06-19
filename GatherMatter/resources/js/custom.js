@@ -19,10 +19,9 @@ window.addEventListener('DOMContentLoaded', function () {
             }, 300); // Warte 500ms, bevor du den Preloader vollständig ausblenden
         }
 
-        // Zeige den Preloader für 0.4 Sekunden an
+        // Zeige den Preloader für x Sekunden an
         setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)
-        setTimeout(hidePreloader, 200); // Hier kannst du die gewünschte Zeit in Millisekunden angeben (z.B. 3000 für 3 Sekunden)ﬂ
-    }
+      }
 });
 
 function previewImage(event) {
