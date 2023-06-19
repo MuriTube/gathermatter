@@ -2,10 +2,9 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\Event;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class EventTest extends TestCase
 {
@@ -15,7 +14,7 @@ class EventTest extends TestCase
     {
         $event = Event::factory()->create();
 
-	// Stellt sicher dass das Testevent in der Datenbank vorhanden ist
+        // Stellt sicher dass das Testevent in der Datenbank vorhanden ist
         $this->assertDatabaseHas('events', [
             'title' => $event->title
         ]);
@@ -27,7 +26,7 @@ class EventTest extends TestCase
 
         $event->delete();
 
-	// Stellt sicher dass das Testevent nicht mehr in der Datenbank ist
+        // Stellt sicher dass das Testevent nicht mehr in der Datenbank ist
         $this->assertDatabaseMissing('events', [
             'title' => $event->title
         ]);

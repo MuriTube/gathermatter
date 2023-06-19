@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -45,31 +45,31 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-{
-    return Validator::make($data, [
-        'name' => ['required', 'string', 'max:255', Rule::unique('users')],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => [
-            'required',
-            'string',
-            'min:8', // mindestens 8 Zeichen
-            'confirmed',
-            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*#?&]).+$/',
-        ],
-    ], [
-        'password.regex' => 'The password must contain at least 8 characters, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
-    ]);
-}
-    
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255', Rule::unique('users')],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => [
+                'required',
+                'string',
+                'min:8', // mindestens 8 Zeichen
+                'confirmed',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*#?&]).+$/',
+            ],
+        ], [
+            'password.regex' => 'The password must contain at least 8 characters, one uppercase letter, one digit, and one special character [.@$!%*#?&]',
+        ]);
+    }
+
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\Models\User
      */
     protected function create(array $data)

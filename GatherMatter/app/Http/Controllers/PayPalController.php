@@ -16,6 +16,7 @@ class PayPalController extends Controller
     {
         return view('transaction');
     }
+
     public function handlePayment()
     {
         $provider = new ExpressCheckout;
@@ -34,8 +35,8 @@ class PayPalController extends Controller
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = url('/paypal-success');
         $total = 0;
-        foreach($data['items'] as $item) {
-            $total += $item['price']*$item['qty'];
+        foreach ($data['items'] as $item) {
+            $total += $item['price'] * $item['qty'];
         }
         $data['total'] = $total;
         $response = $provider->setExpressCheckout($data);
@@ -45,7 +46,6 @@ class PayPalController extends Controller
 
         return redirect($response['paypal_link']);
     }
-
 
 
     /**
@@ -102,11 +102,12 @@ class PayPalController extends Controller
      */
     public function successTransaction(Request $request)
     {
+        $orderID = $request->get('PayerID');
         $token = session('token');
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
-        $response = $provider->capturePaymentOrder($token);
+        $payment = $provider->capturePaymentOrder($orderID);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $transaction = new stdClass();
             $transaction->id = $response['id'];

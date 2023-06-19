@@ -2,10 +2,9 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -16,7 +15,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-	// Sicherstellen dass Testuser in der Datenbank erstellt wurde
+        // Sicherstellen dass Testuser in der Datenbank erstellt wurde
         $this->assertDatabaseHas('users', [
             'email' => $user->email
         ]);
@@ -28,7 +27,7 @@ class UserTest extends TestCase
 
         $user->delete();
 
-	// Sicherstellen dass Testuser nicht mehr in der Datenbank ist
+        // Sicherstellen dass Testuser nicht mehr in der Datenbank ist
         $this->assertDatabaseMissing('users', [
             'email' => $user->email
         ]);

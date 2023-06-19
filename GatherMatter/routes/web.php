@@ -1,5 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::get('/', function () {
+Route::get('/', function () {
     return view('index');
- });
+});
 
 // Erstellt für aboutus page
 Route::get('/aboutus', function () {
@@ -50,11 +60,11 @@ Route::get('/terms', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
-use App\Http\Controllers\HomeController;
+
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+
 // Hier Seiten routes anpassen
 
-use App\Http\Controllers\AdminController;
 // Für Adminpanel um userroles anzupassen
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -63,8 +73,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::put('/admin/show/{user}', [AdminController::class, 'updateProfile'])->name('admin.updateProfile');
 });
-
-use App\Http\Controllers\EventController;
 
 // Für Eventorganisierung um Userroles anzupassen
 Route::group(['middleware' => ['auth', 'adminOrOrganizer']], function () {
@@ -77,32 +85,24 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::post('/events', [EventController::class, 'store'])->name('events.store');
 Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 Route::get('/search', [EventController::class, 'search']);
-use App\Http\Controllers\TicketController;
 
 Route::group(['middleware' => ['auth', 'adminOrOrganizer']], function () {
-Route::get('/tickets/create/{event}', [TicketController::class, 'create'])->name('tickets.create');
-Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
-Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
-Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+    Route::get('/tickets/create/{event}', [TicketController::class, 'create'])->name('tickets.create');
+    Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+    Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
 });
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
 Route::post('/tickets/store/{event}', [TicketController::class, 'store'])->name('tickets.store');
 
-
-use App\Http\Controllers\ProfileController;
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::put('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword');
 
-use App\Http\Controllers\Auth\ForgotPasswordController;
-
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\PaymentController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -113,16 +113,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-
-
-use App\Http\Controllers\PayPalController;
 Route::get('paypal/success', [PayPalController::class, 'successTransaction'])->name('paypal.success');
 Route::get('paypal/cancel', [PayPalController::class, 'cancelTransaction'])->name('paypal.cancel');
 Route::get('paypal/checkout', [App\Http\Controllers\PayPalController::class, 'handlePayment'])->name('paypal.checkout');
 
-
-
-use App\Http\Controllers\Auth\VerificationController;
 
 Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');

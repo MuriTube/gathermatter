@@ -2,19 +2,18 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\Event;
 use App\Models\Ticket;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TicketTest extends TestCase
 {
     use RefreshDatabase;
 
     public function test_Ticket_kann_erstellt_werden()
-    {   
-        Event::factory()->create(); 
+    {
+        Event::factory()->create();
         $ticket = Ticket::factory()->create();
 
         // Stellt sicher dass das Testticket in der Datenbank vorhanden ist
@@ -26,8 +25,8 @@ class TicketTest extends TestCase
     }
 
     public function test_Ticket_kann_geloescht_werden()
-    {   
-        Event::factory()->create(); 
+    {
+        Event::factory()->create();
         $ticket = Ticket::factory()->create();
 
         $ticket->delete();
@@ -39,10 +38,10 @@ class TicketTest extends TestCase
             'description' => $ticket->description
         ]);
     }
-    
+
     public function test_Ticket_kann_bearbeitet_werden()
-    {   
-        Event::factory()->create(); 
+    {
+        Event::factory()->create();
         $ticket = Ticket::factory()->create();
 
         $ticket->update([

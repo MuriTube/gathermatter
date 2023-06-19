@@ -2,10 +2,9 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class AdminTest extends TestCase
 {
@@ -15,11 +14,11 @@ class AdminTest extends TestCase
     {
         // Erstelle einen Admin-Benutzer
         $admin = User::factory()->create(['role' => 'admin']);
-   
-	// Überprüfe, ob der Benutzer in der Datenbank existiert
-   	$this->assertDatabaseHas('users', [
-        	'email' => $admin->email,
-    	]);
+
+        // Überprüfe, ob der Benutzer in der Datenbank existiert
+        $this->assertDatabaseHas('users', [
+            'email' => $admin->email,
+        ]);
 
     }
 
@@ -28,7 +27,7 @@ class AdminTest extends TestCase
         // Erstelle einen Admin-Benutzer
         $admin = User::factory()->create(['role' => 'admin']);
 
-	// Versuche dich anzumelden
+        // Versuche dich anzumelden
         $response = $this->post('/login', [
             'email' => $admin->email,
             'password' => 'password'

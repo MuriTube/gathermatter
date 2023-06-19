@@ -29,7 +29,7 @@
                 <label for="maxParticipants" class="form-label">Max Participants:</label>
                 <input type="number" name="maxParticipants" class="form-control" value="{{ $event->maxParticipants }}">
             </div>
-            <div class="mb-3"> 
+            <div class="mb-3">
                 <label for="image" class="form-label">Current Event-Image:</label><br>
                 <img src="{{ asset('storage/' . $event->image_path) }}" alt="Event Image" width="200"><br>
                 <label for="image">New Event-Image:</label>
