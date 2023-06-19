@@ -14,7 +14,7 @@
     @vite('resources/css/bootstrap.min.css')
 
     <!-- Local Fonts (EB) -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite('css/app.css')
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
