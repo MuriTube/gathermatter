@@ -246,3 +246,22 @@ body.loaded .preloader {
         border-bottom-right-radius: 16px;
     }
 }
+.search-input, .sort-select {
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.search-input::placeholder, .sort-select::placeholder {
+    color: #007bff;
+}
+
+.search-input:focus, .sort-select:focus {
+    outline: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.search-input:hover, .sort-select:hover {
+    transform: scale(1.05);
+}
