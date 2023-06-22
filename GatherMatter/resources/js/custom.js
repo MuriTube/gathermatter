@@ -159,3 +159,64 @@ if (passwordElement && passwordStrengthElement) {
     });
 }
 
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Zugriff auf das Suchfeld
+    const searchInput = document.getElementById('search');
+
+    // Event-Listener für das Suchfeld hinzufügen
+    searchInput.addEventListener('keyup', function() {
+        // Wert des Suchfelds
+        let filterValue = this.value.toUpperCase();
+
+        // Zugriff auf die Tabelle
+        let table = document.querySelector('.table');
+        let tr = table.getElementsByTagName('tr');
+
+        // Durchlaufen aller Tabellenzeilen
+        for (let i = 0; i < tr.length; i++) {
+            let td = tr[i].getElementsByTagName('td')[0]; // Erste Spalte (Username)
+            if (td) {
+                let txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filterValue) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+});
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // Zugriff auf das Dropdown-Menü
+        const sortSelect = document.getElementById('sort');
+    
+        // Event-Listener für das Dropdown-Menü hinzufügen
+        sortSelect.addEventListener('change', function() {
+            // Zugriff auf die Tabelle
+            let tbody = document.getElementById('userTableBody');
+    
+            // Array aus den Tabellenzeilen erstellen
+            let rows = [].slice.call(tbody.rows);
+    
+            // Sortierfunktion
+            rows.sort(function(a, b) {
+                let A = a.children[0].innerText.toUpperCase(); // Erste Spalte (Username)
+                let B = b.children[0].innerText.toUpperCase(); // Erste Spalte (Username)
+                if (A < B) {
+                    return sortSelect.value === 'asc' ? -1 : 1;
+                }
+                if (A > B) {
+                    return sortSelect.value === 'asc' ? 1 : -1;
+                }
+                return 0;
+            });
+    
+            // Tabellenzeilen in der sortierten Reihenfolge hinzufügen
+            rows.forEach(function(row) {
+                tbody.appendChild(row);
+            });
+        });
+    });
+    
