@@ -35,11 +35,13 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 05.06.2023| 3.2.1.2 | 17:00 - 20:00 | 3h | Home | Add Image funktion | - | Diverse Laravel Dokus
 06.06.2023 | 3.2.1.1 | 7:30 - 10:00 | 2h 30m | LBS | Profil umsetzung für Users und Admins | - | Diverse Laravel Dokus
 07.06.2023 | 4.1 | 12:30 - 13:00 | 1h | Home | Tests implementierung | Failed aufgrund fehlender Factory | -
-09.06.2023 | 4.1 | 8:20 - 9:20 | 1h | LBS | User & Event automatisierter Featuretest | - | Diverses aus Laravel Dokus
+09.06.2023 | 4.1 | 8:20 - 9:20 | 1h | LBS | Featuretest | - | Diverses aus Laravel Dokus
 09.06.2023 | 3.2.1.3 | 9:20 - 12:20 | 3h | LBS | Email Password vergessen | - | Diverses aus Laravel Dokus
-12.06.2023 | 4.1 | 7:30 - 8:30 | 1h | LBS | Tests Anpassung | - | Diverses aus Laravel Dokus
-12.06.2023 | 3.2.1.3 | 8:30 - 11:30 | 3h | LBS | Email verifizierung | - | Diverse Larvel Dokus
-13.06.2023 | 3.1.2.1 |7:30 - 10:00 | 2h 30m | LBS | Suchfunktion implementiert | - | Javascript Dokus
+12.06.2023 | 4.1 | 10:00 - 11:00 | 1h | LBS | Tests Anpassung | - | Diverses aus Laravel Dokus
+12.06.2023 | 3.2.1.3 | 11:00 - 12:20 | 1h 20m | LBS | Email verifizierung | - | Diverse Larvel Dokus
+12.06.2023 | 3.2.1.3 | 14:05 - 14:50 | 45m | LBS | Email verifizierung | - | Diverse Larvel Dokus
+12.06.2023 | 3.2.1.3 | 15:40 - 16:25 | 45m | LBS | Email verifizierung | - | Diverse Larvel Dokus
+13.06.2023 | 3.1.2.1 | 7:30 - 10:00 | 2h 30m | LBS | Suchfunktion implementiert | - | Javascript Dokus
 15.06.2023 | 3.2.1.1 | 9:25 - 12:50 | 2h | LBS | Umsetzung Passwortrichtlinien | - | -
 
 
@@ -67,5 +69,14 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 30.05.2023|3.2.1.1| 7:30 - 10:00 | 2h 30m | LBS | Implementierung Laravel | - | Laravel Dokus
 31.05.2023| - | - | - | LBS | Abwesend | - | -
 01.06.2023| - | - | - | LBS | Abwesend | - | -
-01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - |
-06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - |
+01.06.2023| - | 17:30 - 23:30 | 6h | Home | Projekthosting, Datenbanküberarbeitung, Navbar Designanpassungen | - | -
+06.06.2023| - | 18:30 - 00:30 | 6h | Home | Projekthosting, Verschlüsselung über SSL, Mailserver, Performanceoptimierungen | - | -
+08.06.2023 | - | Überarbeitung Projekthosting | 5h | Home | * | - | -
+09.06.2023 | 3.1.1.3 | 8:20 - 8:50 | 30m | LBS | Bilder in Events | - | laravel.com/docs
+09.06.2023 | 4.1 | 8:50 - 12:20 | 3h 30m | LBS | automatisierte Featuretests für User & Events | - | -
+12.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | Cart | - | 
+13.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | Cart | - | 
+15.06.2023 | 3.1.2.2 | 9:25 - 12:50 | 3h 20m | LBS | PayPal, Transaktionen | - | -
+16.06.2023 | 3.1.2.2 | 8:20 - 10:15 | 1h 40m | LBS | PayPal, Transaktionen | - | -
+19.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | PayPal, Transaktionen | - | 
+20.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | PayPal, Transaktionen | - | 
