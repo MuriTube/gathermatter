@@ -20,6 +20,21 @@
                                 </ul>
                             </div>
                         @endif
+                        <!-- Button anzeigen, wenn der Benutzer keine Rolle 'admin' oder 'organizer' hat -->
+                        @if(Auth::user()->role === 'user')
+                            <div class="d-flex justify-content-center mb-4">
+                                <!-- Button ist immer aktiv, wenn jedoch nicht alle Informationen ausgefüllt sind, wird eine Fehlermeldung angezeigt -->
+                                <a 
+                                    @if($user->firstname && $user->surname && $user->email && $user->telefon && $user->zip && $user->city && $user->address)
+                                        href="mailto:getorganizer@gathermatter.io?subject=Application%20for%20Organizer&body=Dear%20GatherMatter%20Team,%0A%0AI%20am%20writing%20to%20express%20my%20interest%20in%20becoming%20an%20organizer.%20Having%20a%20passionate%20interest%20in%20creating%20and%20managing%20events,%20I%20believe%20I%20would%20be%20a%20great%20fit%20for%20this%20role.%0A%0APlease%20find%20my%20profile%20details%20for%20your%20consideration.%0A%0AName:%20{{Auth::user()->name}}%0AEmail:%20{{Auth::user()->email}}%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards,%0A{{Auth::user()->name}}"
+                                    @else 
+                                        href="#" 
+                                        onclick="event.preventDefault(); alert('Please fill out all personal information before applying.');" 
+                                    @endif
+                                    class="btn btn-success"
+                                >Apply to be an organizer</a>
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
