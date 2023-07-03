@@ -43,12 +43,15 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 12.06.2023 | 3.2.1.3 | 15:40 - 16:25 | 45m | LBS | Email verifizierung | - | Diverse Larvel Dokus
 13.06.2023 | 3.1.2.1 | 7:30 - 10:00 | 2h 30m | LBS | Suchfunktion implementiert | - | Javascript Dokus
 15.06.2023 | 3.2.1.1 | 9:25 - 12:50 | 2h | LBS | Umsetzung Passwortrichtlinien | - | -
-
-
-
-
-
-
+16.06.2023 | - | 8:20 - 10:15 | 2h | LBS | Dokumentation | - | -
+19.06.2023 | - | 10:00 - 12:20 | 2h 30m | LBS | Dokumentation | - | -
+20.06.2023 | - | 7:30 - 10:00 | 2h 30m | LBS | Dokumentation | - | -
+22.06.2023 | - | 9:25 - 12:50 | 3h 25m | LBS | Dokumentation | - | -
+26.06.2023 | - | 10:00 - 12:20 | 2h 30m | LBS | Dokumentation | - | -
+27.06.2023 | - | 7:30 - 10:00 | 2h 30m | LBS | Dokumentation | - | -
+28.06.2023 | - | 18:30 - 21:30 | 3h | Home | Präsentation | - | -
+29.06.2023 | - | 9:25 - 12:50 | 2h | LBS | Präsentation | - | -
+30.06.2023 | - | 8:20 - 9:00 | 30m | LBS | Präsentation vorführung final| - | -
 
 ## Murilo:
 
@@ -74,9 +77,9 @@ Datum | AP NR | Zeitraum | Aufwand | Ort | Tätigkeit | Probleme | Quellen
 08.06.2023 | - | Überarbeitung Projekthosting | 5h | Home | * | - | -
 09.06.2023 | 3.1.1.3 | 8:20 - 8:50 | 30m | LBS | Bilder in Events | - | laravel.com/docs
 09.06.2023 | 4.1 | 8:50 - 12:20 | 3h 30m | LBS | automatisierte Featuretests für User & Events | - | -
-12.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | Cart | - | 
-13.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | Cart | - | 
+12.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | Cart | - |
+13.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | Cart | - |
 15.06.2023 | 3.1.2.2 | 9:25 - 12:50 | 3h 20m | LBS | PayPal, Transaktionen | - | -
 16.06.2023 | 3.1.2.2 | 8:20 - 10:15 | 1h 40m | LBS | PayPal, Transaktionen | - | -
-19.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | PayPal, Transaktionen | - | 
-20.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | PayPal, Transaktionen | - | 
+19.06.2023 | 3.1.2.2 | 10:00 - 12:20 | 2h 15m | LBS | PayPal, Transaktionen | - |
+20.06.2023 | 3.1.2.2 | 7:30 - 10:00 | 2h 15m | LBS | PayPal, Transaktionen | - |
